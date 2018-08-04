@@ -3,8 +3,15 @@ at ~/:
 $ npm install -g @vue/cli
 $ vue --version
 $ npm install -g @vue/cli-service-global
+$ npm install --save axios
 
 ---
 
 $ vue --version
 $ vue serve
+
+---
+
+https://vuejs-templates.github.io/webpack/proxy.html
+
+=> https://vuejs-templates.github.io/webpack/

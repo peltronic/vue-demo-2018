@@ -7,6 +7,9 @@
 <script>
 export default {
     name: 'TourList',
+    created() {
+        this.$store.dispatch('getTours');
+    },
     props: {
         msg: String
     }

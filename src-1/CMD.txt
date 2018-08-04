@@ -1,2 +1,8 @@
-$ node server
+cd ~/workspace/study/vuejs/fullstack-vue-book/code/vuex/shopping_cart
+vim src/main.js src/app-complete/store/index.js src/app-complete/store/modules/product/index.js src/app-complete/components/product/*.vue
+---
+$ npm install --save axios
 $ vue create hello-world
+
+
+$ node server
