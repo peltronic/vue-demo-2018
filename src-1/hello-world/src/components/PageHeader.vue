@@ -1,6 +1,9 @@
 <template>
     <div>
         <h1>Page Header</h1>
+        <a href="#">About</a>
+        <a href="#">Login</a>
+        <a href="#">Contact</a>
     </div>
 </template>
 

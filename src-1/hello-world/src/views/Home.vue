@@ -1,7 +1,5 @@
 <template>
   <div class="home">
-    <img src="../assets/logo.png">
-    <PageHeader msg="foo"/>
     <TourList msg="foo"/>
     <VideoSlider msg="foo"/>
   </div>
