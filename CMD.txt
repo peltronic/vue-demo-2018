@@ -1,0 +1,10 @@
+
+at ~/:
+$ npm install -g @vue/cli
+$ vue --version
+$ npm install -g @vue/cli-service-global
+
+---
+
+$ vue --version
+$ vue serve
