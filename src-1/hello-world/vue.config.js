@@ -5,10 +5,13 @@
 // https://stackoverflow.com/questions/40315451/proxy-requests-to-a-separate-backend-server-with-vue-cli
 module.exports = {
 
+    baseUrl: process.env.NODE_ENV === 'production' ? '/dist/' : '/',
+
     devServer: {
 
         // https://vuejs-templates.github.io/webpack/static.html
         build: {
+            //assetsPublicPath: './',
             assetsPublicPath: '/',
             assetsSubDirectory: 'static'
         },
