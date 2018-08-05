@@ -1,2 +1,11 @@
 $ node server 
 $ npm run serve
+$ npm run build
+
+--
+
+http://localhost:3000/img/tour-justin_bieber.png
+
+http://localhost:3000/tours
+
+http://localhost:8080/
