@@ -5,15 +5,17 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import gridfx from './gridfx'
 
-Object.defineProperty(Vue.prototype, '$gridfx', { value: gridfx });
+// https://www.npmjs.com/package/vue-material-design-icons
+import "vue-material-design-icons/styles.css"
+//import gridfx from './gridfx'
+
+//Object.defineProperty(Vue.prototype, '$gridfx', { value: gridfx });
 
 //var t = new gridfx;
 //t._test();
 
 Vue.use(BootstrapVue);
-
 Vue.config.productionTip = false
 
 

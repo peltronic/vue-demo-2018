@@ -65,15 +65,6 @@ export default function GridFx(el, options) {
 
 }
 
-GridFx.prototype._test = function() {
-    console.log('test GridFx');
-    /*
-    return {
-        width: document.documentElement.clientWidth,
-        height: window.innerHeight
-    };
-    */
-};
 
 /**
  * options
@@ -357,6 +348,16 @@ GridFx.prototype._getWinSize = function() {
         width: document.documentElement.clientWidth,
         height: window.innerHeight
     };
+};
+
+GridFx.prototype._test = function() {
+    console.log('test GridFx');
+    /*
+    return {
+        width: document.documentElement.clientWidth,
+        height: window.innerHeight
+    };
+    */
 };
 
 
