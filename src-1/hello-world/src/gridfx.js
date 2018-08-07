@@ -61,6 +61,8 @@ export default function GridFx(el, options) {
     this.closeCtrl = this.previewEl.querySelector('button.action--close');
     this.previewDescriptionEl = this.previewEl.querySelector('.description--preview');
 
+    this._init();
+
 }
 
 GridFx.prototype._test = function() {
@@ -93,6 +95,7 @@ GridFx.prototype._init = function() {
     this.options.onInit(this);
 
     var self = this;
+    /*
     imagesLoaded( this.gridEl, function() {
         // show grid after all images (thumbs) are loaded
         classie.add(self.gridEl, 'grid--loaded');
@@ -103,6 +106,13 @@ GridFx.prototype._init = function() {
         // create the clone image and append it to the DOM
         self._setClone();
     });
+    */
+    // init/bind events
+    self._initEvents();
+    // create the large image and append it to the DOM
+    self._setOriginal();
+    // create the clone image and append it to the DOM
+    self._setClone();
 };
 
 /**
@@ -209,6 +219,7 @@ GridFx.prototype._openItem = function(ev, item) {
 
     // after the clone animates..
     onEndTransition(this.cloneImg, function() {
+        /*
         // when the original/large image is loaded..
         imagesLoaded(self.originalImg, function() {
             // close button just gets shown after the large image gets loaded
@@ -224,8 +235,19 @@ GridFx.prototype._openItem = function(ev, item) {
 
                 self.isAnimating = false;
             });
-            
         }); 
+        */
+        // animate the opacity to 1
+        self.originalImg.style.opacity = 1;
+        // and once that's done..
+        onEndTransition(self.originalImg, function() {
+            // reset cloneImg
+            self.cloneImg.style.opacity = 0;
+            self.cloneImg.style.WebkitTransform = 'translate3d(0,0,0) scale3d(1,1,1)';
+            self.cloneImg.style.transform = 'translate3d(0,0,0) scale3d(1,1,1)';
+
+            self.isAnimating = false;
+        });
     });
 };
 
