@@ -16,9 +16,9 @@ export default new Vuex.Store({
     
     },
     actions: {
-        getTours({ commit }) {
+        getTours({ commit }, take) {
             // /api/tours
-            axios.get('/api/tours').then( (response) => {
+            axios.get('/api/tours?take='+take).then( (response) => {
                 commit('UPDATE_TOURS', response.data);
             });
         }
