@@ -12,8 +12,11 @@
                 <a :href="tour.thumbnail">
                     <div class="item-title">
                         <h6 class="item-sub">{{tour.title}}</h6>
-                        <h3 class="item-heading">{{tour.description}}</h3>
-                        <div class="button"><i class="material-icons">add</i><span>View Project</span></div>
+                        <h3 class="item-heading">{{tour.artist}}</h3>
+                        <div class="button">
+                            <plus-icon />
+                            <span>View Project</span>
+                        </div>
                     </div>
                 </a>
             </b-col>
@@ -21,7 +24,7 @@
 
         <b-row class="preview">
             <b-col>
-                <button class="action action--close"><i class="material-icons">close</i><span class="text-hidden">Close</span></button>
+                <button class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
                 <div class="description description--preview"></div>
             </b-col>
         </b-row>
@@ -30,11 +33,31 @@
 </template>
 
 <script>
+
+import CloseIcon from "vue-material-design-icons/close.vue"
+import PlusIcon from "vue-material-design-icons/plus.vue"
+
 //import gridfx from '../gridfx'
 //Object.defineProperty(Vue.prototype, '$gridfx', { value: gridfx });
 
 // https://forum.vuejs.org/t/data-set-in-created-is-not-available-in-mounted/5555
 
+// https://vuejs.org/v2/guide/transitions.html#Transitioning-Between-Elements
+
+// => https://css-tricks.com/intro-to-vue-5-animations/
+
+// => https://vuejs.org/v2/guide/transitions.html#CSS-Transitions
+
+// https://alligator.io/vuejs/understanding-transitions/
+
+// Use velocity.js instead??
+//   ~ => http://velocityjs.org/#fade
+//   ~ http://velocityjs.org/#bugs
+//   ~ https://gist.github.com/edwardlorilla/f112d36af71094280ae88032756ac61f
+//   ~ https://medium.com/vue-mastery/how-to-create-vue-js-transitions-6487dffd0baa
+//   ~ https://codepen.io/macsupport/pen/xbWGZo
+//   ~ https://www.smashingmagazine.com/2014/09/animating-without-jquery/
+//   ~ 
 export default {
     name: 'TourList',
     computed: {
@@ -57,45 +80,15 @@ export default {
         this.$store.dispatch('getTours',this.toursToDisplay);
     },
     mounted() {
-        var tmp = this.$el;
-        this.t = new this.$gridfx(document.querySelector('.grid'), {
-                        imgPosition: {
-                            x: -0.5,
-                            y: 1
-                        },
-                        onOpenItem: function(instance, item) {
-                            instance.items.forEach(function(el) {
-                                if (item != el) {
-                                    var delay = Math.floor(Math.random() * 50);
-                                    el.style.WebkitTransition = 'opacity .8s ' + delay + 'ms cubic-bezier(.7,0,.3,1), -webkit-transform .8s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
-                                    el.style.transition = 'opacity .8s ' + delay + 'ms cubic-bezier(.7,0,.3,1), transform .8s ' + delay + 'ms cubic-bezier(.7,0,.3,1)';
-                                    el.style.WebkitTransform = 'scale3d(0.1,0.1,1)';
-                                    el.style.transform = 'scale3d(0.1,0.1,1)';
-                                    el.style.opacity = 0;
-                                }
-                            });
-                        },
-                        onCloseItem: function(instance, item) {
-                            instance.items.forEach(function(el) {
-                                if (item != el) {
-                                    el.style.WebkitTransition = 'opacity .8s, -webkit-transform .8s';
-                                    el.style.transition = 'opacity .8s, transform .8s';
-                                    el.style.WebkitTransform = 'scale3d(1,1,1)';
-                                    el.style.transform = 'scale3d(1,1,1)';
-                                    el.style.opacity = 1;
-                
-                                    onEndTransition(el, function() {
-                                        el.style.transition = 'none';
-                                        el.style.WebkitTransform = 'none';
-                                    });
-                                }
-                            });
-                        }
-                    });
-        this.t._test();
+        //var tmp = this.$el;
+        //this.t._test();
     },
     props: {
         msg: String
+    },
+    components: {
+        CloseIcon,
+        PlusIcon
     }
 }
 </script>
