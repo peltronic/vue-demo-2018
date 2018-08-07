@@ -19,5 +19,68 @@
         "title": "Walk on Water",
         "artist" : "30 Seconds to Mars",
         "thumbnail": "img/tour-30_sec_to_mars.png"
+    },
+    {
+        "id": 4,
+        "guid": 4,
+        "title": "Purpose",
+        "artist" : "Justin Bieber",
+        "thumbnail": "/img/tour-justin_bieber.jpg"
+    },
+    {
+        "id": 5,
+        "guid": 5,
+        "title": "Flicker",
+        "artist" : "Niall Horan",
+        "thumbnail": "/img/tour-niall_horan.jpg"
+    },
+    {
+        "id": 6,
+        "guid": 6,
+        "title": "Walk on Water",
+        "artist" : "30 Seconds to Mars",
+        "thumbnail": "img/tour-30_sec_to_mars.png"
+    },
+    {
+        "id": 7,
+        "guid": 7,
+        "title": "Purpose",
+        "artist" : "Justin Bieber",
+        "thumbnail": "/img/tour-justin_bieber.jpg"
+    },
+    {
+        "id": 8,
+        "guid": 8,
+        "title": "Flicker",
+        "artist" : "Niall Horan",
+        "thumbnail": "/img/tour-niall_horan.jpg"
+    },
+    {
+        "id": 9,
+        "guid": 9,
+        "title": "Walk on Water",
+        "artist" : "30 Seconds to Mars",
+        "thumbnail": "img/tour-30_sec_to_mars.png"
+    },
+    {
+        "id": 10,
+        "guid": 10,
+        "title": "Purpose",
+        "artist" : "Justin Bieber",
+        "thumbnail": "/img/tour-justin_bieber.jpg"
+    },
+    {
+        "id": 11,
+        "guid": 11,
+        "title": "Flicker",
+        "artist" : "Niall Horan",
+        "thumbnail": "/img/tour-niall_horan.jpg"
+    },
+    {
+        "id": 12,
+        "guid": 12,
+        "title": "Walk on Water",
+        "artist" : "30 Seconds to Mars",
+        "thumbnail": "img/tour-30_sec_to_mars.png"
     }
 ]

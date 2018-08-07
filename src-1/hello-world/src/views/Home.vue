@@ -5,11 +5,13 @@
             <TourList msg="foo"/>
             </b-col>
         </b-row>
+        <!--
         <b-row>
             <b-col>
             <VideoSlider msg="foo"/>
             </b-col>
         </b-row>
+        -->
     </b-container>
 </template>
 

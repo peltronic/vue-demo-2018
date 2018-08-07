@@ -2,9 +2,9 @@
     <b-container fluid class="bv-example-row">
 
         <b-row id="artistSection" class="grid">
-            <b-col v-for="tour in tours" :key="tour.id" :id="'panel-'+tour.id" class="grid__item tour-list--item">
+            <b-col v-for="tour in tours" v-if="!showPreview" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="col-4 grid__item tour-list--item">
                 <div rel="canonical" class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
-                <a :href="tour.thumbnail" class="img-wrap">
+                <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
                     <img rel="canonical" class="fill portrait" v-bind:src="tour.thumbnail">
                     <div class="description description--grid">
                     </div>
@@ -22,10 +22,13 @@
             </b-col>
         </b-row>
 
-        <b-row class="preview">
+        <b-row v-if="showPreview" id="previewSection" class="preview">
             <b-col>
-                <button class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
-                <div class="description description--preview"></div>
+                <h5>Preview Area</h5>
+                <button v-on:click="showPreview=false" class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
+                <div class="description description--preview">
+                    <h2>{{preview.title}}</h2>
+                </div>
             </b-col>
         </b-row>
 
@@ -72,8 +75,21 @@ export default {
     },
     data() {
         return {
-            toursToDisplay: 3,
-            t: null,
+            preview: {
+                title: "tbd"
+            },
+            showPreview: false,
+            toursToDisplay: 6,
+            t: null
+        }
+    },
+    methods: {
+        renderPreview(e, guid) {
+            e.preventDefault();
+            console.log('clicked: '+guid);
+            let selected = this.tours.find( (t) => t.guid===guid );
+            this.preview.title = selected.title;
+            this.showPreview = true;
         }
     },
     created() {
@@ -94,6 +110,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#previewSection {
+}
 ul {
     list-style: none;
 }
