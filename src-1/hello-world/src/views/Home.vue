@@ -2,7 +2,7 @@
     <b-container fluid class="home bv-example-row">
         <b-row>
             <b-col>
-            <TourList msg="foo"/>
+                <TourList msg="foo"/>
             </b-col>
         </b-row>
         <!--

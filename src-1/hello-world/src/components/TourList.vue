@@ -24,11 +24,7 @@
 
         <b-row v-if="showPreview" id="previewSection" class="preview">
             <b-col>
-                <h5>Preview Area</h5>
-                <button v-on:click="showPreview=false" class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
-                <div class="description description--preview">
-                    <h2>{{preview.title}}</h2>
-                </div>
+                <TourPreview :title="preview.title" :imageUrl="preview.imageUrl" @close-preview="closePreview" />
             </b-col>
         </b-row>
 
@@ -37,6 +33,7 @@
 
 <script>
 
+import TourPreview from '@/components/TourPreview.vue'
 import CloseIcon from "vue-material-design-icons/close.vue"
 import PlusIcon from "vue-material-design-icons/plus.vue"
 
@@ -76,7 +73,8 @@ export default {
     data() {
         return {
             preview: {
-                title: "tbd"
+                title: "tbd",
+                imageUrl: null
             },
             showPreview: false,
             toursToDisplay: 6,
@@ -84,11 +82,15 @@ export default {
         }
     },
     methods: {
+        closePreview(e) {
+            this.showPreview = false;
+        },
         renderPreview(e, guid) {
             e.preventDefault();
             console.log('clicked: '+guid);
             let selected = this.tours.find( (t) => t.guid===guid );
             this.preview.title = selected.title;
+            this.preview.imageUrl = selected.thumbnail;
             this.showPreview = true;
         }
     },
@@ -103,6 +105,7 @@ export default {
         msg: String
     },
     components: {
+        TourPreview,
         CloseIcon,
         PlusIcon
     }
