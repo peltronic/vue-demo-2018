@@ -22,9 +22,9 @@
             </b-col>
         </b-row>
 
-        <b-row v-if="showPreview" id="previewSection" class="preview">
-            <b-col>
-                <TourPreview :title="preview.title" :imageUrl="preview.imageUrl" @close-preview="closePreview" />
+        <b-row v-if="showPreview" id="previewSection" class="preview justify-content-sm-center">
+            <b-col class="col-12">
+                <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" @close-preview="closePreview" />
             </b-col>
         </b-row>
 
@@ -74,6 +74,7 @@ export default {
         return {
             preview: {
                 title: "tbd",
+                artist: "tbd",
                 imageUrl: null
             },
             showPreview: false,
@@ -91,6 +92,7 @@ export default {
             let selected = this.tours.find( (t) => t.guid===guid );
             this.preview.title = selected.title;
             this.preview.imageUrl = selected.thumbnail;
+            this.preview.artist = selected.artist;
             this.showPreview = true;
         }
     },
