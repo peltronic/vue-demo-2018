@@ -32,12 +32,6 @@ export default {
 </script>
 
 <style lang="scss">
-html, body {
-    //height: 100%;
-    background: #000;
-    color: #fff;
-    font-family: Lato,sans-serif;
-}
 </style>
 
 <style lang="scss" scoped>
