@@ -3,22 +3,17 @@
 
         <b-row id="artistSection" class="grid">
             <b-col v-for="tour in tours" v-if="!showPreview" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="col-4 grid__item tour-list--item">
-                <div rel="canonical" class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
+<div class="crate">
+                <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
                 <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
-                    <img rel="canonical" class="fill portrait" v-bind:src="tour.thumbnail">
-                    <div class="description description--grid">
-                    </div>
+                    <img class="" v-bind:src="tour.thumbnail">
                 </a>
-                <a :href="tour.thumbnail">
-                    <div class="item-title">
-                        <h6 class="item-sub">{{tour.title}}</h6>
-                        <h3 class="item-heading">{{tour.artist}}</h3>
-                        <div class="button">
-                            <plus-icon />
-                            <span>View Project</span>
-                        </div>
-                    </div>
-                </a>
+                <div class="item-title">
+                    <h6 class="item-sub">{{tour.title}}</h6>
+                    <h3 class="item-heading">{{tour.artist}}</h3>
+                    <b-button variant="danger" class="tag-clickme_to_view_work"><plus-icon /><span>View Work</span></b-button>
+                </div>
+</div>
             </b-col>
         </b-row>
 
@@ -124,5 +119,54 @@ ul {
 }
 img {
     width: 100%;
+}
+
+.container-fluid {
+    z-index: 100 !important;
+}
+#artistSection {
+    z-index: 3 !important;
+}
+
+.tour-list--item .crate {
+    position: relative;
+    overflow: hidden;
+}
+
+.tour-list--item .img-wrap,
+.tour-list--item .item-title {
+    z-index: 2;
+    position: relative;
+}
+
+.item-title {
+    padding: 20px;
+    background: rgba(50, 50, 50, .7);
+    margin-top: -2px;
+    min-height: 130px;
+}
+.item-title .item-sub,
+.item-title .item-heading {
+    text-transform: uppercase;
+}
+.item-title .item-sub {
+    color: red;
+}
+
+
+.background-image {
+    filter: blur(15px);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-position: center;
+    transform: scale(1.3);
+    /*
+    //z-index: 1;
+    background-size: 200%;
+    */
+}
+button.tag-clickme_to_view_work .material-design-icon.plus-icon {
+    display: none;
 }
 </style>

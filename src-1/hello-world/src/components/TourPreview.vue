@@ -21,7 +21,7 @@
             <b-row>
                 <b-col class="col-2">
                     <div v-on:click="FWDRL.show('lbid_4colRadio', 0)">
-                        <div class="cat-icon"><img class="mic" src="img/icons8-Microphone-100-white.png"></div>
+                        <div class="cat-icon"><img class="mic" src="/img/icons8-Microphone-100-white.png"></div>
                     </div>
                     <ul id="lbid_4colRadio" class="radio-links flex-col">
                         <li id="audioGeneric" v-b-modal.modal-audio_player data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
