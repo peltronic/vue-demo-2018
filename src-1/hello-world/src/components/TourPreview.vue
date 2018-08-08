@@ -1,4 +1,5 @@
 <template>
+<div>
 
 <b-row class="preview preview--open preview--image-loaded">
     <b-col id="crate-image" class="col-6">
@@ -9,6 +10,7 @@
     </b-col>
     <b-col id="crate-description" class="col-6">
         <button v-on:click="monitorClose" class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
+
         <div class="description description--preview">
             <b-row>
                 <b-col>
@@ -21,14 +23,14 @@
                     <div v-on:click="FWDRL.show('lbid_4colRadio', 0)">
                         <div class="cat-icon"><img class="mic" src="img/icons8-Microphone-100-white.png"></div>
                     </div>
-                    <ul id="lbid_4colRadio" class="flex-col">
-                        <li id="audioGeneric" v-on:click="FWDRL.show('lbid_4colRadio', 0)" data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
+                    <ul id="lbid_4colRadio" class="radio-links flex-col">
+                        <li id="audioGeneric" v-b-modal.modal-audio_player data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
                             <h4><microphone-icon />Generic</h4>
                         </li>
-                        <li id="audioAmex" v-on:click="FWDRL.show('lbid_4colRadio', 1)" data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
+                        <li id="audioAmex"  v-b-modal.modal-audio_player data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
                             <h4><microphone-icon />Amex</h4>
                         </li>
-                        <li id="audioCiti" v-on:click="FWDRL.show('lbid_4colRadio', 2)" data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
+                        <li id="audioCiti" v-b-modal.modal-audio_player data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
                             <h4><microphone-icon />Citi</h4>
                         </li>
                     </ul>
@@ -87,6 +89,16 @@
     </b-col>
 </b-row>
 
+<!-- Modal Component -->
+<b-modal centered hide-header hide-footer id="modal-audio_player" title="Bootstrap-Vue">
+    <audio controls>
+        <source src="http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.ogg" type="audio/ogg">
+        <source src="http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> 
+</b-modal>
+
+</div>
 </template>
 
 <script>
@@ -120,16 +132,29 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.modal-content,
+.modal-body {
+    background-color: inherit;
+    border: none !important;
+}
+</style>
+
 <style scoped lang="scss">
 #crate-image img {
     width: 100%;
 }
-
+img.mic, img.monitor, img.resolution {
+    width: 40px;
+}
 ul {
     //display: flex;
     list-style: none;
     padding-left: 0;
     margin-top: 15px;
+}
+ul.radio-links > li {
+    cursor: pointer;
 }
 
 button {
@@ -140,7 +165,6 @@ button {
     font-size: 1.5em;
     margin: 0;
     padding: 0;
-    cursor: pointer;
     vertical-align: top;
     color: #fff;
     border: none;
@@ -250,8 +274,5 @@ ul li h4 .material-design-icon {
     cursor: pointer;
 }
 */
-img.mic, img.monitor, img.resolution {
-    width: 40px;
-}
 
 </style>

@@ -1,3 +1,11 @@
+
+
+Media Player
+https://github.com/sampotts/plyr
+https://github.com/redxtech/vue-plyr
+
+http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3
+
 [ ] pass showPreview from child (preview) to parent (list)
 
 --
@@ -83,3 +91,73 @@
 </div>
 
 
+        <div>
+            <ul class="details">
+                <li v-on:click="FWDRL.show('lbid_4colRadio', 0)">
+                    <div class="cat-icon"><img class="mic" src="img/icons8-Microphone-100-white.png"></div>
+                </li>
+                <li v-on:click="FWDRL.show('lbid_4colTV', 0)">
+                    <div class="cat-icon"><img class="monitor" src="img/icons8-Monitor-100-white.png"></div>
+                </li>
+                <li v-on:click="FWDRL.show('lbid_4colArt', 0)">
+                    <div class="cat-icon"><img class="resolution" src="img/icons8-Resolution-100-white.png"></div>
+                </li>
+            </ul>
+            <ul class="item-list">
+                <li>
+                    <ul id="lbid_4colRadio" class="flex-col">
+                        <li id="audioGeneric" v-on:click="FWDRL.show('lbid_4colRadio', 0)" data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
+                            <h4><microphone-icon />Generic</h4>
+                        </li>
+                        <li id="audioAmex" v-on:click="FWDRL.show('lbid_4colRadio', 1)" data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
+                            <h4><microphone-icon />Amex</h4>
+                        </li>
+                        <li id="audioCiti" v-on:click="FWDRL.show('lbid_4colRadio', 2)" data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
+                            <h4><microphone-icon />Citi</h4>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul id="lbid_4colTV" class="flex-col">
+                        <li id="videoGeneric" v-on:click="FWDRL.show('lbid_4colTV', 0)" data-url="./assets/98920-3f854-GTC091953.mp4" data-poster-path="./img/revsliders/covers/d2a77-es.png" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="800" data-height="450">
+                            <h4><play-circle-outline-icon />Generic</h4>
+                            <p class="description"></p>
+                        </li>
+                        <li id="videoAmex" v-on:click="FWDRL.show('lbid_4colTV', 1)" data-url="./assets/98920-3f854-GTC091953.mp4" data-poster-path="./img/revsliders/covers/d2a77-es.png" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="800" data-height="450">
+                            <h4><play-circle-outline-icon />Amex</h4>
+                            <p class="description"></p>
+                        </li>
+                        <li id="videoCiti" v-on:click="FWDRL.show('lbid_4colTV', 2)" data-url="./assets/98920-3f854-GTC091953.mp4" data-poster-path="./img/revsliders/covers/d2a77-es.png" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="800" data-height="450">
+                            <h4><play-circle-outline-icon />Citi</h4>
+                            <p class="description"></p>
+                        </li>
+                        <li id="videoSuperless" v-on:click="FWDRL.show('lbid_4colTV', 3)" data-url="./assets/98920-3f854-GTC091953.mp4" data-poster-path="./img/revsliders/covers/d2a77-es.png" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="800" data-height="450">
+                            <h4><play-circle-outline-icon />Superless</h4>
+                            <p class="description"></p>
+                        </li>
+                        <li id="videoXSupport" v-on:click="FWDRL.show('lbid_4colTV', 4)" data-url="./assets/98920-3f854-GTC091953.mp4" data-poster-path="./img/revsliders/covers/d2a77-es.png" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="800" data-height="450">
+                            <h4><play-circle-outline-icon />XSupport</h4>
+                            <p class="description"></p>
+                        </li>
+                        <li id="videoYSupport" v-on:click="FWDRL.show('lbid_4colTV', 5)" data-url="./assets/98920-3f854-GTC091953.mp4" data-poster-path="./img/revsliders/covers/d2a77-es.png" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="800" data-height="450">
+                            <h4><play-circle-outline-icon />YSupport</h4>
+                            <p class="description"></p>
+                        </li>
+                        <li id="videoSolo" v-on:click="FWDRL.show('lbid_4colTV', 6)" data-url="./assets/98920-3f854-GTC091953.mp4" data-poster-path="./img/revsliders/covers/d2a77-es.png" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="800" data-height="450">
+                            <h4><play-circle-outline-icon />Solo</h4>
+                            <p class="description"></p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul id="lbid_4colArt" class="flex-col">
+                        <li id="artworkPortrait" v-on:click="FWDRL.show('lbid_4colArt', 0)" data-url="./img/04.jpg" data-thumbnail-path="./img/04.jpg">
+                            <h4><pencil-icon />Portrait</h4>
+                        </li>
+                        <li id="artworkLandscape" v-on:click="FWDRL.show('lbid_4colArt', 1)" data-url="./img/04.jpg" data-thumbnail-path="./img/04.jpg">
+                            <h4><pencil-icon />Landscape</h4>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
