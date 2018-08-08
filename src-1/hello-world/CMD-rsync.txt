@@ -1,0 +1,7 @@
+# this is for the dist subdir
+rsync -az --force --delete --progress \
+          --chmod=g+w \
+          --rsync-path='rsync' \
+          --exclude-from=rsyncconfig/rsync_exclude--init.txt \
+          ./dist/ \
+          psgc-aws:/jet/www/src/gtc-l5/public/dist
