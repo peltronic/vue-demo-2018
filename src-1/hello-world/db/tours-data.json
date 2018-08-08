@@ -4,6 +4,7 @@
         "guid": 1,
         "title": "Purpose",
         "artist" : "Justin Bieber",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-justin_bieber.jpg"
     },
     {
@@ -11,6 +12,7 @@
         "guid": 2,
         "title": "Flicker",
         "artist" : "Niall Horan",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-niall_horan.jpg"
     },
     {
@@ -18,6 +20,7 @@
         "guid": 3,
         "title": "Walk on Water",
         "artist" : "30 Seconds to Mars",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "img/tour-30_sec_to_mars.png"
     },
     {
@@ -25,6 +28,7 @@
         "guid": 4,
         "title": "Purpose",
         "artist" : "Justin Bieber",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-justin_bieber.jpg"
     },
     {
@@ -32,6 +36,7 @@
         "guid": 5,
         "title": "Flicker",
         "artist" : "Niall Horan",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-niall_horan.jpg"
     },
     {
@@ -39,6 +44,7 @@
         "guid": 6,
         "title": "Walk on Water",
         "artist" : "30 Seconds to Mars",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "img/tour-30_sec_to_mars.png"
     },
     {
@@ -46,6 +52,7 @@
         "guid": 7,
         "title": "Purpose",
         "artist" : "Justin Bieber",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-justin_bieber.jpg"
     },
     {
@@ -53,6 +60,7 @@
         "guid": 8,
         "title": "Flicker",
         "artist" : "Niall Horan",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-niall_horan.jpg"
     },
     {
@@ -60,6 +68,7 @@
         "guid": 9,
         "title": "Walk on Water",
         "artist" : "30 Seconds to Mars",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "img/tour-30_sec_to_mars.png"
     },
     {
@@ -67,6 +76,7 @@
         "guid": 10,
         "title": "Purpose",
         "artist" : "Justin Bieber",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-justin_bieber.jpg"
     },
     {
@@ -74,6 +84,7 @@
         "guid": 11,
         "title": "Flicker",
         "artist" : "Niall Horan",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "/img/tour-niall_horan.jpg"
     },
     {
@@ -81,6 +92,7 @@
         "guid": 12,
         "title": "Walk on Water",
         "artist" : "30 Seconds to Mars",
+        "mp3": "http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3",
         "thumbnail": "img/tour-30_sec_to_mars.png"
     }
 ]

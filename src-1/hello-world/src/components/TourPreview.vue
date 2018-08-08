@@ -30,7 +30,7 @@
                         <li id="audioAmex"  v-b-modal.modal-audio_player data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
                             <h4><microphone-icon />Amex</h4>
                         </li>
-                        <li id="audioCiti" v-b-modal.modal-audio_player data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
+                        <li id="audioCiti" v-b-modal.modal1 data-url="./audio/BlueDucks_FourFlossFiveSix.mp3" data-thumbnail-path="./img/revsliders/covers/d2a77-es.png" data-width="600">
                             <h4><microphone-icon />Citi</h4>
                         </li>
                     </ul>
@@ -91,9 +91,13 @@
 
 <!-- Modal Component -->
 <b-modal centered hide-header hide-footer id="modal-audio_player" title="Bootstrap-Vue">
+    <h3>title...{{title}}</h3>
     <audio controls>
-        <source src="http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.ogg" type="audio/ogg">
+        <!--
         <source src="http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.mp3" type="audio/mpeg">
+        <source src="http://www.l5-dev-gtc.com/cdn/audio/BlueDucks_FourFlossFiveSix.ogg" type="audio/ogg">
+        -->
+        <source v-bind:src="mp3Url" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio> 
 </b-modal>
@@ -113,6 +117,7 @@ export default {
     props: {
         title: String,
         artist: String,
+        mp3Url: String,
         imageUrl: String
     },
     methods: {
