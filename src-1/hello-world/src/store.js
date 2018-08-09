@@ -6,11 +6,18 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
+        isPreviewVisible: false,
         tours: [],
         videos: [],
         featuredVideos: []
     },
     mutations: {
+        SHOW_PREVIEW (state, payload) {
+            state.isPreviewVisible = true;
+        },
+        HIDE_PREVIEW (state, payload) {
+            state.isPreviewVisible = false;
+        },
         UPDATE_TOURS (state, payload) {
             state.tours = payload;
         },
@@ -20,6 +27,12 @@ export default new Vuex.Store({
     
     },
     actions: {
+        showPreview({ commit } ) {
+            commit('SHOW_PREVIEW', null);
+        },
+        hidePreview({ commit } ) {
+            commit('HIDE_PREVIEW', null);
+        },
         getTours({ commit }, take) {
             // /api/tours
             axios.get('/api/tours?take='+take).then( (response) => {
@@ -35,6 +48,7 @@ export default new Vuex.Store({
     
     },
     getters: {
+        isPreviewVisible: state => state.isPreviewVisible,
         tours: state => state.tours,
         videos: state => state.videos
     }

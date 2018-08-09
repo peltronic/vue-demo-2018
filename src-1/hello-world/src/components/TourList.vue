@@ -2,7 +2,7 @@
     <b-container fluid class="bv-example-row">
 
         <b-row id="artistSection" class="grid">
-            <b-col v-for="tour in tours" v-if="!showPreview" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="col-4 grid__item tour-list--item">
+            <b-col v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="col-4 grid__item tour-list--item">
 <div class="crate">
                 <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
                 <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
@@ -17,9 +17,12 @@
             </b-col>
         </b-row>
 
-        <b-row v-if="showPreview" id="previewSection" class="preview justify-content-sm-center">
+        <b-row v-if="isPreviewVisible" id="previewSection" class="preview justify-content-sm-center">
             <b-col class="col-12">
+                <!--
                 <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" @close-preview="closePreview" />
+                -->
+                <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" />
             </b-col>
         </b-row>
 
@@ -64,6 +67,9 @@ import PlusIcon from "vue-material-design-icons/plus.vue"
 export default {
     name: 'TourList',
     computed: {
+        isPreviewVisible() {
+            return this.$store.getters.isPreviewVisible;
+        },
         tours() {
             return this.$store.getters.tours;
         }
@@ -81,16 +87,12 @@ export default {
                 mp3Url: null,
                 imageUrl: null
             },
-            showPreview: false,
             toursToDisplay: 6,
             t: null
         }
     },
     methods: {
-        closePreview(e) {
-            this.showPreview = false;
-        },
-        renderPreview(e, guid) {
+        renderPreview(e, guid) { // aka openPreview
             e.preventDefault();
             console.log('clicked: '+guid);
             let selected = this.tours.find( (t) => t.guid===guid );
@@ -98,7 +100,7 @@ export default {
             this.preview.imageUrl = selected.thumbnail;
             this.preview.mp3Url = selected.mp3;
             this.preview.artist = selected.artist;
-            this.showPreview = true;
+            this.$store.dispatch('showPreview');
         }
     },
     created() {

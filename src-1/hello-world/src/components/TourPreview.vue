@@ -9,7 +9,7 @@
         -->
     </b-col>
     <b-col id="crate-description" class="col-6">
-        <button v-on:click="monitorClose" class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
+        <button v-on:click="closePreview" class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
 
         <div class="description description--preview">
             <b-row>
@@ -121,12 +121,9 @@ export default {
         imageUrl: String
     },
     methods: {
-        monitorClose() {
-            this.$emit('close-preview', {
-                //note: this.input,
-                //timestamp: new Date().toLocaleString()
-            })
-        }
+        closePreview(e) {
+            this.$store.dispatch('hidePreview');
+        },
     },
     components: {
         CloseIcon,
@@ -177,6 +174,7 @@ button {
 }
 button.action.action--close .material-design-icon {
     font-size: 60px;
+    cursor: pointer;
 }
 .action--close {
     position: fixed;

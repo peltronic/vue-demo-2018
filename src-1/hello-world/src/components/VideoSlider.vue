@@ -1,5 +1,5 @@
 <template>
-<div id="wrap-video_slider">
+<div v-if="!isPreviewVisible" id="wrap-video_slider">
 
     <b-row id="playerSection">
         <b-col>
@@ -61,6 +61,9 @@ export default {
         msg: String
     },
     computed: {
+        isPreviewVisible() {
+            return this.$store.getters.isPreviewVisible;
+        },
         videos() {
             return this.$store.getters.videos;
         }
