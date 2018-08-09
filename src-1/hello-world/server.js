@@ -6,7 +6,7 @@ const path = require('path');
 
 const app = express();
 
-const PRODUCT_DATA_FILE = path.join(__dirname, 'server-product-data.json');
+const VIDEO_DATA_FILE = path.join(__dirname, 'db/videos-data.json');
 const TOUR_DATA_FILE = path.join(__dirname, 'db/tours-data.json');
 
 app.set('port', (process.env.PORT || 3000));
@@ -25,8 +25,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/products', (req, res) => {
-  fs.readFile(PRODUCT_DATA_FILE, (err, data) => {
+app.get('/videos', (req, res) => {
+  fs.readFile(VIDEO_DATA_FILE, (err, data) => {
     res.setHeader('Cache-Control', 'no-cache');
     res.json(JSON.parse(data));
   });
