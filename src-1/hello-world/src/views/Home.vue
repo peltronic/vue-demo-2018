@@ -1,5 +1,5 @@
 <template>
-    <b-container fluid class="home bv-example-row">
+    <b-container fluid id="page-home" class="home bv-example-row">
         <b-row>
             <b-col>
                 <TourList msg="foo"/>
@@ -25,7 +25,7 @@
 
 <script>
 // @ is an alias to /src
-import PageHeader from '@/components/PageHeader.vue'
+//import PageHeader from '@/components/PageHeader.vue'
 import TourList from '@/components/TourList.vue'
 import VideoSlider from '@/components/VideoSlider.vue'
 import GtcServices from '@/components/GtcServices.vue'
@@ -34,7 +34,7 @@ import Footer from '@/components/Footer.vue'
 export default {
   name: 'home',
   components: {
-    PageHeader,
+    //PageHeader,
     TourList,
     VideoSlider,
     GtcServices,

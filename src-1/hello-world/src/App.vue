@@ -14,6 +14,9 @@
 </template>
 
 <style lang="scss">
+.debug-border {
+    border: solid 5px yellow; // debug
+}
 html, body {
     //height: 100%;
     background: #000;

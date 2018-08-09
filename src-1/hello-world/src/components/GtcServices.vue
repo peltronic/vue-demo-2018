@@ -100,7 +100,7 @@ export default {
     padding: 30px;
 }
 #aSection > * {
-    border: solid 5px yellow; // debug
+    //border: solid 5px yellow; // debug
 }
 #crate-macbook_image {
     position: relative;
