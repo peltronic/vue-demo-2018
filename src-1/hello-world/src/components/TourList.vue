@@ -45,6 +45,14 @@ import PlusIcon from "vue-material-design-icons/plus.vue"
 
 // https://alligator.io/vuejs/understanding-transitions/
 
+// Thumbnails / grid :
+// ~ https://getbootstrap.com/docs/3.3/components/#thumbnails
+// ~ also see: 
+//   o https://masonry.desandro.com/
+//   o => https://isotope.metafizzy.co/
+//      - https://www.npmjs.com/package/vueisotope
+//   o https://salvattore.js.org/
+
 // Use velocity.js instead??
 //   ~ => http://velocityjs.org/#fade
 //   ~ http://velocityjs.org/#bugs
