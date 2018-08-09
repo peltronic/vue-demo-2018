@@ -1,0 +1,91 @@
+[
+{
+    "id": "rs-01",
+    "slide": "slide-01",
+    "thumb": "http://www.l5-dev-gtc.com/cdn/revsliders/thumbs/200x120_d2a77-es.png",
+    "title": "Ed Sheeran",
+    "details":
+    {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "subtitle": "One Minute Generic",
+        "cover": "http://www.l5-dev-gtc.com/cdn/revsliders/covers/d2a77-es.png",
+        "videoogv": "http://www.l5-dev-gtc.com/cdn/video/a3710-3f854-GTC091953.oggtheora.ogv",
+        "videoweb": "http://www.l5-dev-gtc.com/cdn/video/95a72-0b55f-GTC091953.webmhd.webm",
+        "videomp4": "http://www.l5-dev-gtc.com/cdn/video/98920-3f854-GTC091953.mp4"
+    }
+},
+{
+    "id": "rs-02",
+    "slide": "slide-02",
+    "thumb": "http://www.l5-dev-gtc.com/cdn/revsliders/thumbs/200x120_4a0eb-jz.png",
+    "title": "Jay-Z",
+    "details":
+    {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "subtitle": "One Minute Generic",
+        "cover": "http://www.l5-dev-gtc.com/cdn/revsliders/covers/4a0eb-jz.png",
+        "videoogv": "http://www.l5-dev-gtc.com/cdn/video/a3710-3f854-GTC091953.oggtheora.ogv",
+        "videoweb": "http://www.l5-dev-gtc.com/cdn/video/95a72-0b55f-GTC091953.webmhd.webm",
+        "videomp4": "http://www.l5-dev-gtc.com/cdn/video/98920-3f854-GTC091953.mp4"
+    }
+},
+{
+    "id": "rs-03",
+    "slide": "slide-03",
+    "thumb": "http://www.l5-dev-gtc.com/cdn/revsliders/thumbs/200x120_6eed5-GTC091953.png",
+    "title": "Thirty Seconds To Mars",
+    "details":
+    {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "subtitle": "One Minute Generic",
+        "cover": "http://www.l5-dev-gtc.com/cdn/revsliders/covers/6eed5-GTC091953.png",
+        "videoogv": "http://www.l5-dev-gtc.com/cdn/video/a3710-3f854-GTC091953.oggtheora.ogv",
+        "videoweb": "http://www.l5-dev-gtc.com/cdn/video/95a72-0b55f-GTC091953.webmhd.webm",
+        "videomp4": "http://www.l5-dev-gtc.com/cdn/video/98920-3f854-GTC091953.mp4"
+    }
+},
+{
+    "id": "rs-04",
+    "slide": "slide-04",
+    "thumb": "http://www.l5-dev-gtc.com/cdn/revsliders/thumbs/200x120_521e0-pink.png",
+    "title": "P!nk",
+    "details":
+    {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "subtitle": "One Minute Generic",
+        "cover": "http://www.l5-dev-gtc.com/cdn/revsliders/covers/521e0-pink.png",
+        "videoogv": "http://www.l5-dev-gtc.com/cdn/video/a3710-3f854-GTC091953.oggtheora.ogv",
+        "videoweb": "http://www.l5-dev-gtc.com/cdn/video/95a72-0b55f-GTC091953.webmhd.webm",
+        "videomp4": "http://www.l5-dev-gtc.com/cdn/video/98920-3f854-GTC091953.mp4"
+    }
+},
+{
+    "id": "rs-05",
+    "slide": "slide-05",
+    "thumb": "http://www.l5-dev-gtc.com/cdn/revsliders/thumbs/200x120_ccf4b-got.png",
+    "title": "Game of Thrones",
+    "details":
+    {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "subtitle": "One Minute Generic",
+        "cover": "http://www.l5-dev-gtc.com/cdn/revsliders/covers/ccf4b-got.png",
+        "videoogv": "http://www.l5-dev-gtc.com/cdn/video/a3710-3f854-GTC091953.oggtheora.ogv",
+        "videoweb": "http://www.l5-dev-gtc.com/cdn/video/95a72-0b55f-GTC091953.webmhd.webm",
+        "videomp4": "http://www.l5-dev-gtc.com/cdn/video/98920-3f854-GTC091953.mp4"
+    }
+},
+{
+    "id": "rs-06",
+    "slide": "slide-06",
+    "thumb": "http://www.l5-dev-gtc.com/cdn/revsliders/thumbs/200x120_d1233-cds.png",
+    "title": "Cirque du Soliel",
+    "details":
+    {
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+        "subtitle": "One Minute Generic",
+        "cover": "http://www.l5-dev-gtc.com/cdn/revsliders/covers/d1233-cds.png",
+        "videoogv": "http://www.l5-dev-gtc.com/cdn/video/a3710-3f854-GTC091953.oggtheora.ogv",
+        "videoweb": "http://www.l5-dev-gtc.com/cdn/video/95a72-0b55f-GTC091953.webmhd.webm",
+        "videomp4": "http://www.l5-dev-gtc.com/cdn/video/98920-3f854-GTC091953.mp4"
+    }
+}]
