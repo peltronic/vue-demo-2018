@@ -75,4 +75,11 @@ export default {
   -webkit-justify-content: center;
   */
 }
+
+#page-about .template-wrap {
+    height: 100vh;
+}
+#page-about .background-image {
+    background-size: cover;
+}
 </style>

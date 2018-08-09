@@ -3,9 +3,9 @@
 
     <b-row id="aSection">
 
-        <b-col md="8">
+        <b-col>
             <div class="supercrate">
-                Digital
+                <h1>Digital</h1>
             </div>
         </b-col>
 

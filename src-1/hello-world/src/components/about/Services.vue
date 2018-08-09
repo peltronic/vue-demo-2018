@@ -3,7 +3,7 @@
 
     <b-row id="aSection">
 
-        <b-col md="8">
+        <b-col>
             <div class="supercrate">
                 Services
             </div>

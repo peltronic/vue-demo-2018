@@ -1,14 +1,13 @@
 <template>
 <b-container fluid id="wrap-about_intro" class="debug-border template-wrap">
 
-    <b-row id="aSection">
-
-        <b-col md="8">
+    <b-row class="h-100 tag-background_image">
+        <b-col class="my-auto">
             <div class="supercrate">
-                Intro
+                <h1>Digital<br />Marketing</h1>
+                <h2>Unlike anything you could imagine</h2>
             </div>
         </b-col>
-
     </b-row>
 
 </b-container>
@@ -33,4 +32,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.template-wrap .supercrate {
+    text-align: center;
+}
+.tag-background_image {
+    background-image: url(/img/img_mountains01.jpg);
+}
 </style>
