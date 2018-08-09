@@ -1,59 +1,67 @@
 <template>
-  <div id="wrap-video_slider">
-                <!--
-            <video width="320" height="240" controls>
-                <source src="http://www.l5-dev-gtc.com/cdn/video/09542-GTC091953.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video> 
-                -->
-    <b-carousel id="carousel1"
-                style="text-shadow: 1px 1px 2px #333;"
-                controls
-                indicators
-                background="#ababab"
-                :interval="4000"
-                v-model="slide"
-                @sliding-start="onSlideStart"
-                @sliding-end="onSlideEnd"
-    >
+<div id="wrap-video_slider">
 
-        <b-carousel-slide>
-            <div slot="img" class="d-block w-100 crate-video">
-                <h1>Slide 1</h1>
-                <video class="" controls>
-                    <source src="http://gtc.peterg-webdeveloper.com/cdn/video/09542-GTC091953.mp4" type="video/mp4">
-                    <!--
-                    <source src="movie.mp4" type="video/mp4">
-                    <source src="movie.ogg" type="video/ogg">
-                    -->
-                    Your browser does not support the video tag.
-                </video> 
-            </div>
-        </b-carousel-slide>
+    <b-row id="playerSection">
+        <b-col>
 
-        <b-carousel-slide>
-            <div slot="img" class="d-block w-100 crate-video">
-                <h1>Slide 2</h1>
-                <video class="" controls>
-                    <source src="http://gtc.peterg-webdeveloper.com/cdn/video/09542-GTC091953.mp4" type="video/mp4">
-                    <!--
-                    <source src="movie.mp4" type="video/mp4">
-                    <source src="movie.ogg" type="video/ogg">
-                    -->
-                    Your browser does not support the video tag.
-                </video> 
-            </div>
-        </b-carousel-slide>
+            <b-carousel id="carousel1"
+                        style="text-shadow: 1px 1px 2px #333;"
+                        controls
+                        indicators
+                        background="#ababab"
+                        :interval="4000"
+                        v-model="slide"
+                        @sliding-start="onSlideStart"
+                        @sliding-end="onSlideEnd"
+            >
+        
+                <b-carousel-slide>
+                    <div slot="img" class="d-block w-100 crate-video">
+                        <h1>Slide 1</h1>
+                        <video class="" controls>
+                            <source src="http://gtc.peterg-webdeveloper.com/cdn/video/09542-GTC091953.mp4" type="video/mp4">
+                            <!--
+                            <source src="movie.mp4" type="video/mp4">
+                            <source src="movie.ogg" type="video/ogg">
+                            -->
+                            Your browser does not support the video tag.
+                        </video> 
+                    </div>
+                </b-carousel-slide>
+        
+                <b-carousel-slide>
+                    <div slot="img" class="d-block w-100 crate-video">
+                        <h1>Slide 2</h1>
+                        <video class="" controls>
+                            <source src="http://gtc.peterg-webdeveloper.com/cdn/video/09542-GTC091953.mp4" type="video/mp4">
+                            <!--
+                            <source src="movie.mp4" type="video/mp4">
+                            <source src="movie.ogg" type="video/ogg">
+                            -->
+                            Your browser does not support the video tag.
+                        </video> 
+                    </div>
+                </b-carousel-slide>
+        
+        
+            </b-carousel>
+        
+            <p class="mt-4">
+            Slide #: {{ slide }}<br>
+            Sliding: {{ sliding }}
+            </p>
+        </b-col>
+    </b-row>
 
-  
-    </b-carousel>
+    <b-row id="playlistSection">
+        <b-col v-for="vid in videos" :key="vid.id" :id="'thumbnail-'+vid.id" class="superbox-thumbnail">
+            <a v-on:click="queueVideo($event, vid.id)" :href="vid.url" class="">
+                <img class="" v-bind:src="vid.thumb">
+            </a>
+        </b-col>
+    </b-row>
 
-    <p class="mt-4">
-      Slide #: {{ slide }}<br>
-      Sliding: {{ sliding }}
-    </p>
-
-  </div>
+</div>
 </template>
 
 <script>
@@ -67,20 +75,36 @@ export default {
     props: {
         msg: String
     },
+    computed: {
+        videos() {
+            return this.$store.getters.videos;
+        }
+        /*
+        ...mapGetters([
+            'videos' // map this.videos to this.$store.getters.videos
+        ])
+        */
+    },
     data () {
         return {
             slide: 0,
+            videosToDisplay: 5,
             sliding: null
         }
     },
     methods: {
+        queueVideo (e, guid) {
+        },
         onSlideStart (slide) {
             this.sliding = true
         },
         onSlideEnd (slide) {
             this.sliding = false
         }
-    }
+    },
+    created() {
+        this.$store.dispatch('getVideos',this.videosToDisplay);
+    },
 }
 </script>
 
