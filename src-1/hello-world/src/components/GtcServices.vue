@@ -1,5 +1,5 @@
 <template>
-<div v-if="!isPreviewVisible" id="wrap-gtc_services" class="template-wrap">
+<b-container fluid v-if="!isPreviewVisible" id="wrap-gtc_services" class="template-wrap">
 
     <b-row id="aSection">
 
@@ -17,26 +17,55 @@
                         <!--
                         <img id="image-macbook" src="img/d0632-MacBook.png" alt="" style="width: 972px; height: 583px">
                         -->
-                        <img id="image-macbook" src="img/d0632-MacBook.png" alt="">
-                        <img id="image-macbook_screen" class="tag-inner" src="http://www.l5-dev-gtc.com/cdn/revsliders/covers/d2a77-es.png" alt="">
+                        <img id="image-macbook" src="img/d0632-MacBook.png" alt="macbook" height="500">
+                        <img id="image-macbook_screen" class="tag-inner" src="http://www.l5-dev-gtc.com/cdn/revsliders/covers/d2a77-es.png" alt="macbook screen" height="500">
                     </b-col>
                 </b-row>
             </div>
         </b-col>
 
         <b-col md="4" class="OFF_col-4">
-            OTHER
+                <div id="radioBlock" class="">
+                    <div class="">
+                        <div class="tag-icon">
+                            <img src="img/icons8-Microphone-100-white.png" alt="radio icon" height="100">
+                        </div>
+                        <div class="tag-service">
+                            <h4>Radio</h4></div>
+                    </div>
+                </div>
+                <div id="tvBlock" class="">
+                    <div class="">
+                        <div class="tag-icon">
+                            <img src="img/icons8-Monitor-100-white.png" alt="monitor icon" height="100">
+                        </div>
+                        <div class="tag-service">
+                            <h4>TV</h4></div>
+                    </div>
+                </div>
+                <div id="expBlock" class="">
+                    <div class="">
+                        <div class="tag-icon">
+                            <img src="img/icons8-Eye-100-white.png" alt="eye icon" height="100">
+                        </div>
+                        <div class="tag-service">
+                            <h4>Experimental</h4></div>
+                    </div>
+                </div>
+                <div id="digitalBlock" class="">
+                    <div class="">
+                        <div class="tag-icon">
+                            <img src="img/icons8-Resolution-100-white.png" alt="digital icon" height="100">
+                        </div>
+                        <div class="tag-service">
+                            <h4>Digital</h4></div>
+                    </div>
+                </div>
         </b-col>
 
     </b-row>
 
-    <b-row id="bSection">
-        <b-col>
-            Bar
-        </b-col>
-    </b-row>
-
-</div>
+</b-container>
 </template>
 
 <script>
@@ -78,7 +107,7 @@ export default {
     overflow: hidden;
 }
 #crate-macbook_image img {
-    height: 50%;
+    //height: 50%;
 }
 #crate-macbook_image .tag-inner {
     position: absolute;
