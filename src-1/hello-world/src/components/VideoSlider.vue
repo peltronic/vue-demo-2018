@@ -121,4 +121,7 @@ video {
     max-height: 675px;
     */
 }
+#playlistSection img {
+    cursor: pointer;
+}
 </style>
