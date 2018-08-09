@@ -2,18 +2,18 @@
     <b-container fluid class="bv-example-row">
 
         <b-row id="artistSection" class="grid">
-            <b-col v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="col-4 grid__item tour-list--item">
-<div class="crate">
-                <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
-                <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
-                    <img class="" v-bind:src="tour.thumbnail">
-                </a>
-                <div class="item-title">
-                    <h6 class="item-sub">{{tour.title}}</h6>
-                    <h3 class="item-heading">{{tour.artist}}</h3>
-                    <b-button variant="danger" class="tag-clickme_to_view_work"><plus-icon /><span>View Work</span></b-button>
+            <b-col md="4" v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="OFF-col-xs-12 OFF-col-md-4 grid__item tour-list--item">
+                <div class="crate">
+                    <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
+                    <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
+                        <img class="" v-bind:src="tour.thumbnail">
+                    </a>
+                    <div class="item-title">
+                        <h6 class="item-sub">{{tour.title}}</h6>
+                        <h3 class="item-heading">{{tour.artist}}</h3>
+                        <b-button variant="danger" class="tag-clickme_to_view_work"><plus-icon /><span>View Work</span></b-button>
+                    </div>
                 </div>
-</div>
             </b-col>
         </b-row>
 

@@ -1,5 +1,5 @@
 <template>
-<div v-if="!isPreviewVisible" id="wrap-video_slider">
+<div v-if="!isPreviewVisible" id="wrap-video_slider" class="template-wrap">
 
     <b-row id="playerSection">
         <b-col>
@@ -103,26 +103,21 @@ export default {
     margin-top: 70px;
 }
 .crate-video {
-    /*
-    margin-top: 0px;
-    margin-bottom: 0px;
-    */
-    width: 100%;
-    height: 675px;
-    max-height: 675px;
     display: block;
     position: relative;
-    overflow: hidden;
+    width: 100%;
+    //(1) height: 675px;
+    //(1) max-height: 675px;
+    //(1) overflow: hidden;
 }
 video {
+    /* (1)
+    // see: https://stackoverflow.com/questions/11757537/css-image-size-how-to-fill-not-stretch
     position: absolute;
-    top: -50%;
+    top: 0; // -50%;
     left: 0;
-    width: 100%;
-    /*
-    overflow: hidden;
-    max-height: 675px;
     */
+    width: 100%;
 }
 #playlistSection img {
     cursor: pointer;
