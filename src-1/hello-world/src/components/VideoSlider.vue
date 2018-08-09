@@ -10,16 +10,16 @@
                         indicators
                         background="#ababab"
                         :interval="4000"
-                        v-model="slide"
+                        v-model="slideIndex"
                         @sliding-start="onSlideStart"
                         @sliding-end="onSlideEnd"
             >
         
-                <b-carousel-slide>
+                <b-carousel-slide v-for="vid in videos" :key="vid.id" :id="'slide-'+vid.id" class="superbox-slide">
                     <div slot="img" class="d-block w-100 crate-video">
-                        <h1>Slide 1</h1>
+                        <h1>Slide {{vid.id}}</h1>
                         <video class="" controls>
-                            <source src="http://gtc.peterg-webdeveloper.com/cdn/video/09542-GTC091953.mp4" type="video/mp4">
+                            <source :src="vid.details.videomp4" type="video/mp4">
                             <!--
                             <source src="movie.mp4" type="video/mp4">
                             <source src="movie.ogg" type="video/ogg">
@@ -28,26 +28,11 @@
                         </video> 
                     </div>
                 </b-carousel-slide>
-        
-                <b-carousel-slide>
-                    <div slot="img" class="d-block w-100 crate-video">
-                        <h1>Slide 2</h1>
-                        <video class="" controls>
-                            <source src="http://gtc.peterg-webdeveloper.com/cdn/video/09542-GTC091953.mp4" type="video/mp4">
-                            <!--
-                            <source src="movie.mp4" type="video/mp4">
-                            <source src="movie.ogg" type="video/ogg">
-                            -->
-                            Your browser does not support the video tag.
-                        </video> 
-                    </div>
-                </b-carousel-slide>
-        
-        
+
             </b-carousel>
         
             <p class="mt-4">
-            Slide #: {{ slide }}<br>
+            Slide #: {{ slideIndex }}<br>
             Sliding: {{ sliding }}
             </p>
         </b-col>
@@ -87,13 +72,15 @@ export default {
     },
     data () {
         return {
-            slide: 0,
+            slideIndex: 0,
             videosToDisplay: 5,
             sliding: null
         }
     },
     methods: {
-        queueVideo (e, guid) {
+        queueVideo (e, vidID) {
+            e.preventDefault();
+            this.slideIndex = this.videos.findIndex( (o) => o.id===vidID );
         },
         onSlideStart (slide) {
             this.sliding = true
