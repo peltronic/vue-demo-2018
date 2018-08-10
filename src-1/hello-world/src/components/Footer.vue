@@ -67,4 +67,7 @@ export default {
 #wrap-footer #crate-social .material-design-icon:last-child {
     margin-right: 0;
 }
+#footer {
+    text-align: center;
+}
 </style>

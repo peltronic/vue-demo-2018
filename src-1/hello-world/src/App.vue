@@ -1,19 +1,63 @@
 <template>
     <div id="app">
-        <!--
-        <img src="./assets/logo.png">
-        -->
-        <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link> |
-            <router-link to="/contact">Contact</router-link> |
-            <a href="#">Login</a>
-        </div>
+
+        <b-navbar id="nav" toggleable="md">
+            <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+
+            <b-navbar-brand href="#">
+                <img src="/img/logo.png" atl="GTC Logo" height="30">
+            </b-navbar-brand>
+
+            <b-collapse is-nav id="nav_collapse">
+                <b-navbar-nav class="ml-auto">
+                    <b-nav-item to="/">Home</b-nav-item>
+                    <b-nav-item to="/about">About</b-nav-item>
+                    <b-nav-item href="#">Login</b-nav-item>
+                    <b-nav-item to="/contact">Contact</b-nav-item>
+                </b-navbar-nav>
+            </b-collapse>
+        </b-navbar>
+
         <router-view/>
+
     </div>
 </template>
 
 <style lang="scss">
+nav#nav {
+  padding: 30px;
+}
+nav#nav li > a {
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #cacaca;
+}
+nav#nav li {
+    margin-left: 25px;
+}
+nav#nav li:first-child {
+    margin-left: 0;
+}
+nav#nav li a {
+    font-weight: bold;
+    &.router-link-exact-active {
+        color: #42b983;
+    }
+}
+/*
+ul.navbar-nav {
+  padding: 30px;
+  li {
+        a {
+            font-weight: bold;
+            color: #2c3e50;
+            &.router-link-exact-active {
+                color: #42b983;
+            }
+        }
+    }
+}
+*/
 .debug-border {
     border: solid 5px yellow; // debug
 }
@@ -31,15 +75,5 @@ html, body {
   text-align: center;
   color: #2c3e50;
   */
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
