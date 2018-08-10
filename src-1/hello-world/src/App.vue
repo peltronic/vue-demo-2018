@@ -24,6 +24,12 @@
 </template>
 
 <style lang="scss">
+
+// form validation errors
+.tag-verror {
+    color: red; 
+}
+
 nav#nav {
   padding: 30px;
 }
@@ -76,4 +82,5 @@ html, body {
   color: #2c3e50;
   */
 }
+
 </style>
