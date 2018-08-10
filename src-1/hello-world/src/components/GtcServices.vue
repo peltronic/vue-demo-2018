@@ -8,7 +8,7 @@
                 <b-row>
                     <b-col class="col-6">
                         <h2>
-                            <img src="img/gtc-logo-bug-white.png" alt="" style="width: 71px; height: 30px"> Services
+                            <img src="img/gtc-logo-bug.png" alt="" style="width: 71px; height: 30px"> Services
                         </h2>
                         <h3>A Complete Package</h3>
                         <p>We offer clients around-the-clock creative production services from our digital hub in Los Angeles, USA and our European studio in Dublin, Ireland. With over 250 voice talent on our roster fluent in over 115 languages; we are the only "Global" agency representing new and established artists.</p>
@@ -28,7 +28,7 @@
                 <div id="radioBlock" class="">
                     <div class="">
                         <div class="tag-icon">
-                            <img src="img/icons8-Microphone-100-white.png" alt="radio icon" height="100">
+                            <img src="img/icons8-Microphone-100.png" alt="radio icon" height="100">
                         </div>
                         <div class="tag-service">
                             <h4>Radio</h4></div>
@@ -37,7 +37,7 @@
                 <div id="tvBlock" class="">
                     <div class="">
                         <div class="tag-icon">
-                            <img src="img/icons8-Monitor-100-white.png" alt="monitor icon" height="100">
+                            <img src="img/icons8-Monitor-100.png" alt="monitor icon" height="100">
                         </div>
                         <div class="tag-service">
                             <h4>TV</h4></div>
@@ -46,7 +46,7 @@
                 <div id="expBlock" class="">
                     <div class="">
                         <div class="tag-icon">
-                            <img src="img/icons8-Eye-100-white.png" alt="eye icon" height="100">
+                            <img src="img/icons8-Eye-100.png" alt="eye icon" height="100">
                         </div>
                         <div class="tag-service">
                             <h4>Experimental</h4></div>
@@ -55,7 +55,7 @@
                 <div id="digitalBlock" class="">
                     <div class="">
                         <div class="tag-icon">
-                            <img src="img/icons8-Resolution-100-white.png" alt="digital icon" height="100">
+                            <img src="img/icons8-Resolution-100.png" alt="digital icon" height="100">
                         </div>
                         <div class="tag-service">
                             <h4>Digital</h4></div>
