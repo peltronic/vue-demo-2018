@@ -24,7 +24,7 @@
 
         <!-- the modal -->
         <b-modal id="myModal">
-            Hello From My Modal!
+            <LoginModal title="Modal Title" msg="foo"/>
         </b-modal>
 
     </div>
@@ -33,10 +33,12 @@
 <script>
 // @ is an alias to /src
 import Footer from '@/components/Footer.vue'
+import LoginModal from '@/components/LoginModal.vue'
 
 export default {
   name: 'app',
   components: {
+    LoginModal,
     Footer
   }
 }
