@@ -1,5 +1,5 @@
 <template>
-<b-container fluid id="wrap-about_intro" class="debug-border template-wrap">
+<b-container fluid id="wrap-about_print" class="debug-border template-wrap">
 
     <b-row class="h-100 tag-background_image">
         <b-col class="my-auto">
@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.tag-background_image {
+    background-image: url(/img/img_red01.jpg);
+}
 .template-wrap .my-auto {
     height: 70%;
 }
@@ -49,8 +52,5 @@ export default {
 }
 .template-wrap #img-magazine img {
     height: 100%;
-}
-.tag-background_image {
-    background-image: url(/img/img_red01.jpg);
 }
 </style>

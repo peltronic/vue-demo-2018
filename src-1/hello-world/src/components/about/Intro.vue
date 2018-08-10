@@ -32,10 +32,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.template-wrap .supercrate {
-    text-align: center;
-}
 .tag-background_image {
     background-image: url(/img/img_mountains01.jpg);
+}
+.template-wrap .supercrate {
+    text-align: center;
 }
 </style>

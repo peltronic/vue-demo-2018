@@ -60,6 +60,13 @@ export default {
 </script>
 
 <style lang="scss">
+#page-about .template-wrap {
+    height: 100vh;
+}
+#page-about .tag-background_image {
+    background-size: 100%; // cover
+    background-position: center center;
+}
 </style>
 
 <style lang="scss" scoped>
@@ -76,10 +83,4 @@ export default {
   */
 }
 
-#page-about .template-wrap {
-    height: 100vh;
-}
-#page-about .background-image {
-    background-size: cover;
-}
 </style>
