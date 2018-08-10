@@ -12,7 +12,7 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item to="/">Home</b-nav-item>
                     <b-nav-item to="/about">About</b-nav-item>
-                    <b-nav-item href="#">Login</b-nav-item>
+                    <b-nav-item v-b-modal.myModal>Login</b-nav-item>
                     <b-nav-item to="/contact">Contact</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
@@ -20,8 +20,27 @@
 
         <router-view/>
 
+        <Footer msg="foo"/>
+
+        <!-- the modal -->
+        <b-modal id="myModal">
+            Hello From My Modal!
+        </b-modal>
+
     </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import Footer from '@/components/Footer.vue'
+
+export default {
+  name: 'app',
+  components: {
+    Footer
+  }
+}
+</script>
 
 <style lang="scss">
 
