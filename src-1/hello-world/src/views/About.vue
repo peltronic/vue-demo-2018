@@ -64,8 +64,10 @@ export default {
     height: 100vh;
 }
 #page-about .tag-background_image {
-    background-size: 100%; // cover
+    //background-size: 100%; // cover
+    background-size: cover;
     background-position: center center;
+    background-repeat: no-repeat;
 }
 </style>
 
