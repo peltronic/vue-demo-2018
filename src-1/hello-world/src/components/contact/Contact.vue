@@ -1,45 +1,49 @@
 <template>
 <b-container fluid id="wrap-contact_contact" class="debug-border template-wrap">
 
-
-    <b-row class="h-100 justify-content-center tag-background_image">
-        <b-col md="5" id="form-contact" class="supercrate my-auto">
-            <h2>Let's<br />Connect</h2>
+<div id="subwrap">
+    <b-row class="h-100 justify-content-center no-gutters tag-background_image">
+        <b-col md="4" id="form-contact" class="supercrate my-auto">
             <div class="">
-                <form @submit="submitForm" class="ui form"> 
-                    <div class="field">
-                        <label>Name</label>
-                        <input v-model="fields.name" type="text" placeholder="Enger full name..." /> 
-                        <span class="tag-verror">{{ fieldErrors.name }}</span>
-                    </div>
-                    <div class="field">
-                        <label>Phone</label>
-                        <input v-model="fields.phone" type="text" placeholder="Enter phone..." />
-                        <span class="tag-verror">{{ fieldErrors.phone }}</span>
-                    </div> 
-                    <div class="field">
-                        <label>Message</label>
-                        <textarea v-model="fields.message" placeholder="" rows="5" />
-                        <span class="tag-verror">{{ fieldErrors.message }}</span>
-                    </div> 
-                    <button class="ui button">Submit</button>
-                </form>
+                <h2>Let's<br />Connect</h2>
+                <b-form @submit="submitForm" :validated="wasValidated" novalidate class="OFF-ui OFF-form"> 
+                    <b-form-group id="fg-contact_name" label="Name" label-for="contact_name" >
+                        <b-form-input id="contact_name" type="text" v-model="fields.name" required placeholder="Enter full name..."></b-form-input>
+                        <b-form-invalid-feedback>{{ fieldErrors.name }} </b-form-invalid-feedback>
+                    </b-form-group>
+                    <b-form-group id="fg-contact_phone" label="Phone" label-for="contact_phone" >
+                        <b-form-input id="contact_phone" type="text" v-model="fields.phone" required placeholder="Enter phone..."></b-form-input>
+                        <b-form-invalid-feedback>{{ fieldErrors.phone }} </b-form-invalid-feedback>
+                    </b-form-group>
+                    <b-form-group id="fg-contact_message" label="Message" label-for="contact_message" >
+                        <b-form-textarea id="contact_message" v-model="fields.message" rows="5" placeholder=""></b-form-textarea>
+                        <b-form-invalid-feedback>{{ fieldErrors.message }} </b-form-invalid-feedback>
+                    </b-form-group>
+                    <b-button type="submit" variant="primary">Submit</b-button>
+                </b-form>
             </div>
         </b-col>
-        <b-col md="5" class="my-auto supercrate">
+        <b-col md="4" class="my-auto supercrate">
             <div id="company-map" class="">
-                <img src="/img/675cb-snazzy-image.png" alt="Company Location on Map">
+                <img src="/img/675cb-snazzy-image.png" alt="Company Location on Map" class="OFF-img-fluid">
             </div>
         </b-col>
     </b-row>
+</div>
 
 </b-container>
 </template>
 
 <script>
+// %TODO: get rid of v-100 on this page, adjust accoringly
+// BS4 Form Validation:
+//   ~ https://bootstrap-vue.js.org/docs/components/form
+//   ~ https://getbootstrap.com/docs/4.0/components/forms/#validation
+
 export default {
     name: 'Contact',
     props: {
+        //validated: Boolean,
         msg: String
     },
     computed: {
@@ -56,7 +60,7 @@ export default {
                 phone: undefined,
                 message: undefined
             },
-            foo: 0
+            wasValidated: false
         }
     },
     methods: {
@@ -75,6 +79,7 @@ export default {
         },
         validateForm(fields) {
             const errors = {};
+            this.wasValidated = true;
             if (!fields.name) errors.name = "Name Required"; 
             if (!fields.phone) errors.phone = "Phone Required";
             if (!fields.message) errors.message = "Message Required"; 
@@ -96,6 +101,13 @@ export default {
 #form-contact {
     background-color: #fff;
     color: #000;
+    //height: 100%;
+}
+#form-contact > div {
+    padding: 50px;
+}
+#form-contact h2 {
+    margin-bottom: 25px;
 }
 .tag-background_image {
     //background-image: url(/img/img_mountains01.jpg);
@@ -104,13 +116,18 @@ export default {
     //text-align: center;
 }
 .supercrate { 
-    height: 70%;
+    height: 100%;
 }
 #company-map {
     height: 100%;
 }
 #company-map img {
-    //display: block;
+    //height: 100%;
+    max-height: 100%;
+    width: auto;
+}
+#subwrap {
+    padding: 35px 0;
     height: 100%;
 }
 </style>

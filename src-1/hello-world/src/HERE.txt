@@ -1,6 +1,8 @@
 https://stackoverflow.com/questions/16466240/adjusting-and-image-size-to-fit-a-div-bootstrap
 https://stackoverflow.com/questions/11092146/how-to-hide-part-of-the-image
 https://stackoverflow.com/questions/11757537/css-image-size-how-to-fill-not-stretch
+https://bootstrap-vue.js.org/docs/components/form
+https://getbootstrap.com/docs/4.0/components/forms/#validation
 
 
 Media Player
