@@ -17,3 +17,8 @@ Slider
 --
 
 assets/99e41-ig-browse.jpg
+
+---
+
+[ ] one index app page or multiple (one for home, about, contact, etc)
+[ ] SEO & SSR vs hybrid
