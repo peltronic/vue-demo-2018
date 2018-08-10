@@ -1,3 +1,4 @@
+
 https://stackoverflow.com/questions/16466240/adjusting-and-image-size-to-fit-a-div-bootstrap
 https://stackoverflow.com/questions/11092146/how-to-hide-part-of-the-image
 https://stackoverflow.com/questions/11757537/css-image-size-how-to-fill-not-stretch
@@ -24,3 +25,4 @@ assets/99e41-ig-browse.jpg
 
 [ ] one index app page or multiple (one for home, about, contact, etc)
 [ ] SEO & SSR vs hybrid
+[ ] use img-responsive (bs4)
