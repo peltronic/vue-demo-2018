@@ -23,8 +23,18 @@
         <Footer msg="foo"/>
 
         <!-- the modal -->
-        <b-modal id="myModal">
-            <LoginModal title="Modal Title" msg="foo"/>
+        <b-modal id="modal-login"
+                size="lg"
+                centered
+                :hide-header=true
+                :hide-footer=true
+                header-bg-variant="light"
+                header-text-variant="dark"
+                body-bg-variant="light"
+                body-text-variant="dark"
+                footer-bg-variant="light"
+                footer-text-variant="dark">
+            <LoginModal />
         </b-modal>
 
     </div>
@@ -45,6 +55,7 @@ export default {
 </script>
 
 <style lang="scss">
+
 
 // form validation errors
 .tag-verror {
