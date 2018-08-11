@@ -12,7 +12,7 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item to="/">Home</b-nav-item>
                     <b-nav-item to="/about">About</b-nav-item>
-                    <b-nav-item href="#">Login</b-nav-item>
+                    <b-nav-item v-b-modal.modal-login>Login</b-nav-item>
                     <b-nav-item to="/contact">Contact</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
@@ -20,10 +20,48 @@
 
         <router-view/>
 
+        <Footer msg="foo"/>
+
+        <!-- the modal -->
+        <b-modal id="modal-login"
+                ref="loginModal"
+                size="lg"
+                centered
+                :hide-header=true
+                :hide-footer=true
+                header-bg-variant="light"
+                header-text-variant="dark"
+                body-bg-variant="light"
+                body-text-variant="dark"
+                footer-bg-variant="light"
+                footer-text-variant="dark">
+            <LoginModal @close_modal="closeModal" />
+        </b-modal>
+
     </div>
 </template>
 
+<script>
+// @ is an alias to /src
+import Footer from '@/components/Footer.vue'
+import LoginModal from '@/components/LoginModal.vue'
+
+export default {
+    name: 'app',
+    methods: {
+        closeModal() {
+            this.$refs.loginModal.hide()
+        }
+    },
+    components: {
+        LoginModal,
+        Footer
+    }
+}
+</script>
+
 <style lang="scss">
+
 
 // form validation errors
 .tag-verror {

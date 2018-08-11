@@ -26,11 +26,6 @@
                 <Services msg="foo"/>
             </b-col>
         </b-row>
-        <b-row>
-            <b-col>
-                <Footer msg="foo"/>
-            </b-col>
-        </b-row>
 
     </b-container>
 </template>
@@ -43,7 +38,6 @@ import Print from '@/components/about/Print.vue'
 import Social from '@/components/about/Social.vue'
 import Digital from '@/components/about/Digital.vue'
 import Services from '@/components/about/Services.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'home',
@@ -53,8 +47,7 @@ export default {
     Print,
     Social,
     Digital,
-    Services,
-    Footer
+    Services
   }
 }
 </script>

@@ -15,11 +15,6 @@
                 <GtcServices msg="foo"/>
             </b-col>
         </b-row>
-        <b-row>
-            <b-col>
-                <Footer msg="foo"/>
-            </b-col>
-        </b-row>
     </b-container>
 </template>
 
@@ -29,7 +24,6 @@
 import TourList from '@/components/TourList.vue'
 import VideoSlider from '@/components/VideoSlider.vue'
 import GtcServices from '@/components/GtcServices.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'home',
@@ -37,8 +31,7 @@ export default {
     //PageHeader,
     TourList,
     VideoSlider,
-    GtcServices,
-    Footer
+    GtcServices
   }
 }
 </script>

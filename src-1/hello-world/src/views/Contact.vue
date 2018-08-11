@@ -6,11 +6,6 @@
                 <Contact msg="foo"/>
             </b-col>
         </b-row>
-        <b-row>
-            <b-col>
-                <Footer msg="foo"/>
-            </b-col>
-        </b-row>
 
     </b-container>
 </template>
@@ -19,14 +14,12 @@
 // @ is an alias to /src
 //import PageHeader from '@/components/PageHeader.vue'
 import Contact from '@/components/contact/Contact.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'home',
   components: {
     //PageHeader,
-    Contact,
-    Footer
+    Contact
   }
 }
 </script>
