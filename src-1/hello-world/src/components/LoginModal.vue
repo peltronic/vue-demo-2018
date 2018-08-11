@@ -1,5 +1,6 @@
 <template>
-<div class="template-wrap">
+<div id="subwrap">
+    <close-icon @click.native="closeModal" />
     <b-container fluid>
         <b-row class="OFF-text-center">
             <b-col id="supercrate-form" class="supercrate">
@@ -48,10 +49,17 @@
                 </div>
             </b-col>
 
-            <b-col id="supercrate-copy" class="text-center supercrate">
-                <h2>Creative <br />Portal</h2>
-                <p>The perfect place to manage your digital messaging</p>
-            </b-col>
+            <b-row>
+                <b-col class="copy-background">
+                    <b-row>
+                        <b-col id="supercrate-copy" class="my-auto text-center supercrate OFF-copy-background">
+                            <img id="gtc-logo" src="img/logo.png" alt="GTC Logo" height="30">
+                            <h2>Creative <br />Portal</h2>
+                            <p>The perfect place to manage your digital messaging</p>
+                        </b-col>
+                    </b-row>
+                </b-col>
+            </b-row>
 
         </b-row>
     </b-container>
@@ -61,9 +69,12 @@
 
 <script>
 
+import CloseIcon from "vue-material-design-icons/close.vue"
+
 export default {
     name: 'LoginModal',
-    computed: {
+    components: {
+        CloseIcon,
     },
     data () {
         return {
@@ -147,6 +158,10 @@ export default {
 
         // --- Other ---
 
+        closeModal() {
+            this.$emit('close_modal');
+        },
+
         isValidPhone(str) {
             return true; // %TODO
             //const re = /\S+@\S+\.\S+/; // regex for email format %FIXME
@@ -159,6 +174,10 @@ export default {
 <style lang="scss">
 #modal-login .modal-content .modal-body {
     padding: 0;
+    /*
+    margin-left: 1rem;
+    margin-right: 1rem;
+    */
     -webkit-border-radius: 0.3rem;
     -moz-border-radius: 0.3rem;
     border-radius: 0.3rem;
@@ -166,31 +185,50 @@ export default {
 </style>
 
 <style scoped lang="scss">
-/*
-.modal-content > div {
-    padding: 50px;
-}
-.modal-content h2 {
-    margin-bottom: 25px;
-}
-*/
-.template-wrap .supercrate {
-}
 .supercrate { 
     //height: 100%;
+    padding: 3rem 0;
+}
+#supercrate-form { 
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 #supercrate-copy { 
+    padding-left: 2rem;
+    padding-right: 2rem;
+    color: #fff;
+}
+.copy-background { 
     background-image: url(/img/c2279-login-bg.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    color: #fff;
 }
-#company-map {
-    //height: 100%;
+.copy-background > .row { 
+    height: 100%;
+}
+#supercrate-form h2 { 
+    margin-bottom: 3rem;
+}
+#supercrate-form form { 
+    margin-bottom: 2rem;
+}
+#supercrate-copy img#gtc-logo { 
+    margin-bottom: 2rem;
+}
+#supercrate-copy h2 {
+    margin-bottom: 2rem;
 }
 #subwrap {
-    padding: 35px 0;
-    height: 100%;
+    position: relative;
+}
+.material-design-icon.close-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    font-size: 60px;
+    cursor: pointer;
+    color: #fff;
 }
 </style>

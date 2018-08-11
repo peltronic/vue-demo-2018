@@ -12,7 +12,7 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item to="/">Home</b-nav-item>
                     <b-nav-item to="/about">About</b-nav-item>
-                    <b-nav-item v-b-modal.myModal>Login</b-nav-item>
+                    <b-nav-item v-b-modal.modal-login>Login</b-nav-item>
                     <b-nav-item to="/contact">Contact</b-nav-item>
                 </b-navbar-nav>
             </b-collapse>
@@ -24,6 +24,7 @@
 
         <!-- the modal -->
         <b-modal id="modal-login"
+                ref="loginModal"
                 size="lg"
                 centered
                 :hide-header=true
@@ -34,7 +35,7 @@
                 body-text-variant="dark"
                 footer-bg-variant="light"
                 footer-text-variant="dark">
-            <LoginModal />
+            <LoginModal @close_modal="closeModal" />
         </b-modal>
 
     </div>
@@ -46,11 +47,16 @@ import Footer from '@/components/Footer.vue'
 import LoginModal from '@/components/LoginModal.vue'
 
 export default {
-  name: 'app',
-  components: {
-    LoginModal,
-    Footer
-  }
+    name: 'app',
+    methods: {
+        closeModal() {
+            this.$refs.loginModal.hide()
+        }
+    },
+    components: {
+        LoginModal,
+        Footer
+    }
 }
 </script>
 
