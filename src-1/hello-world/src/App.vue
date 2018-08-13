@@ -12,6 +12,7 @@
                 <b-navbar-nav class="ml-auto">
                     <b-nav-item to="/">Home</b-nav-item>
                     <b-nav-item to="/about">About</b-nav-item>
+                    <b-nav-item to="/test">Test</b-nav-item>
                     <b-nav-item v-b-modal.modal-login>Login</b-nav-item>
                     <b-nav-item to="/contact">Contact</b-nav-item>
                 </b-navbar-nav>
@@ -103,7 +104,7 @@ ul.navbar-nav {
 }
 */
 .debug-border {
-    border: solid 5px yellow; // debug
+    //border: solid 5px yellow; // debug
 }
 html, body {
     //height: 100%;

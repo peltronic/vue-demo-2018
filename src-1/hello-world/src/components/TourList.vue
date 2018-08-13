@@ -1,7 +1,7 @@
 <template>
     <b-container fluid class="bv-example-row">
 
-        <b-row id="artistSection" class="grid">
+        <transition-group id="artistSection" class="grid row" name="artist_grid" tag="div">
             <b-col md="4" v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="OFF-col-xs-12 OFF-col-md-4 grid__item tour-list--item">
                 <div class="crate">
                     <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </b-col>
-        </b-row>
+        </transition-group>
 
         <b-row v-if="isPreviewVisible" id="previewSection" class="preview justify-content-sm-center">
             <b-col class="col-12">
@@ -178,5 +178,19 @@ img {
 }
 button.tag-clickme_to_view_work .material-design-icon.plus-icon {
     display: none;
+}
+
+// Transitions
+.artist_grid-enter-active {
+  transition: all 0.7s;
+}
+.artist_grid-leave-active {
+  transition: all 0.7s;
+}
+.artist_grid-enter, 
+.artist_grid-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+  //transform: translateY(30px);
 }
 </style>

@@ -5,6 +5,8 @@ https://stackoverflow.com/questions/11757537/css-image-size-how-to-fill-not-stre
 https://bootstrap-vue.js.org/docs/components/form
 https://getbootstrap.com/docs/4.0/components/forms/#validation
 
+https://www.impressivewebs.com/css3-transition-all/
+
 
 Media Player
 ~ https://github.com/sampotts/plyr
