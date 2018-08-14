@@ -127,14 +127,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+html, body {
+    height: 100% !important;
+}
 #wrap-home_tourlist > div.row > div.col {
     position: relative;
     min-height: 100vh;
 }
 #previewSection {
+    // see: https://stackoverflow.com/questions/28144233/bootstrap-container-with-positionabsolute-loses-layout-inside
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
 }
 #artistSection {
     position: absolute;
@@ -259,16 +264,16 @@ isPreviewVisible() {
 
 */
 .t_preview-enter-active {
-  transition: all 2.7s;
+  transition: all 0.8s;
 }
 .t_preview-leave-active {
-  transition: all 2.7s;
+  transition: all 0.8s;
 }
 .t_preview-enter, 
 .t_preview-leave-to {
   opacity: 0;
-  //transform: scale(0.5);
-  transform: translateY(300px);
+  transform: scale(0.5);
+  //transform: translateY(300px);
 }
 
 </style>
