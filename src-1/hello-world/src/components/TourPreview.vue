@@ -1,7 +1,8 @@
 <template>
 <div>
 
-<b-row class="preview preview--open preview--image-loaded">
+
+<b-row id="preview">
     <b-col id="crate-image" class="col-6">
         <img rel="canonical" class="original" v-bind:src="imageUrl">
         <!--

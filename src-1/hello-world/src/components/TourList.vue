@@ -1,7 +1,7 @@
 <template>
     <b-container fluid class="bv-example-row">
 
-        <transition-group id="artistSection" class="grid row" name="artist_grid" tag="div">
+        <transition-group id="artistSection" class="grid row" name="t_artist_grid" tag="div">
             <b-col md="4" v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="OFF-col-xs-12 OFF-col-md-4 grid__item tour-list--item">
                 <div class="crate">
                     <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
@@ -17,7 +17,8 @@
             </b-col>
         </transition-group>
 
-        <b-row v-if="isPreviewVisible" id="previewSection" class="preview justify-content-sm-center">
+<transition v-on:leave="leave" v-on:before-leave="beforeLeave" name="t_preview">
+        <b-row v-if="isPreviewVisible" key="k_preview" id="previewSection" class="preview justify-content-sm-center">
             <b-col class="col-12">
                 <!--
                 <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" @close-preview="closePreview" />
@@ -25,6 +26,7 @@
                 <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" />
             </b-col>
         </b-row>
+</transition>
 
     </b-container>
 </template>
@@ -92,6 +94,12 @@ export default {
         }
     },
     methods: {
+        beforeLeave(e) {
+            console.log('before leave');
+        },
+        leave(e, done) {
+            console.log('leave');
+        },
         renderPreview(e, guid) { // aka openPreview
             e.preventDefault();
             console.log('clicked: '+guid);
@@ -105,10 +113,6 @@ export default {
     },
     created() {
         this.$store.dispatch('getTours',this.toursToDisplay);
-    },
-    mounted() {
-        //var tmp = this.$el;
-        //this.t._test();
     },
     props: {
         msg: String
@@ -180,17 +184,65 @@ button.tag-clickme_to_view_work .material-design-icon.plus-icon {
     display: none;
 }
 
-// Transitions
-.artist_grid-enter-active {
+// === Transitions ===
+
+// Grid
+.t_artist_grid-enter-active {
   transition: all 0.7s;
 }
-.artist_grid-leave-active {
+.t_artist_grid-leave-active {
   transition: all 0.7s;
 }
-.artist_grid-enter, 
-.artist_grid-leave-to {
+.t_artist_grid-enter, 
+.t_artist_grid-leave-to {
   opacity: 0;
   transform: scale(0.5);
   //transform: translateY(30px);
 }
+
+// Preview
+//   %NOTE %FIXME 20180813 -- this transition is not working b/c, I believe, it is triggered in the Preview component
+//    ...not sure why the computed property doesn't catch it however...
+//    solution is to move it to absolute position so it overlaps??
+//    it's there, jsut hidden by the grid content becoming visible (??)
+// Ideally we are able to somehow hook to other elements (timing and synchronization), if not may just have to combine the 2 and make the preview
+//   position absolute
+// ==
+/*
+        isPreviewVisible() {
+            return this.$store.getters.isPreviewVisible;
+        },
+isPreviewVisible should not be a getter, polluted state in Vuex state
+    ~ probably should revert back to just using a custom event 
+    ~ also, can put X in parent instead of preview child, that solves alot of problems (no event needed?)
+isPreviewVisible() {
+    // something like this (psuedo-code)
+    if (transition from not visible to visible) {
+        hide grid first, then using promise or equiv show preview
+    } else if (transition from visible to not visible) {
+        hide preview first, then using promise or equiv show grid
+    }
+},
+
+
+*/
+isPreviewVisible() {
+        return this.$store.getters.isPreviewVisible;
+},
+
+
+*/
+.t_preview-enter-active {
+  transition: all 2.7s;
+}
+.t_preview-leave-active {
+  transition: all 2.7s;
+}
+.t_preview-enter, 
+.t_preview-leave-to {
+  opacity: 0;
+  //transform: scale(0.5);
+  transform: translateY(300px);
+}
+
 </style>

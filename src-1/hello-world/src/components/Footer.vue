@@ -33,7 +33,7 @@ import InstagramIcon from "vue-material-design-icons/instagram.vue"
 import FacebookBoxIcon from "vue-material-design-icons/facebook-box.vue"
 
 export default {
-    name: 'TourList',
+    name: 'Footer',
     computed: {
         /*
         isPreviewVisible() {

@@ -11,6 +11,15 @@
         </transition-group>
     </div>
 
+        <button v-on:click="isVisible=!isVisible">Toggle</button>
+<transition name="t_preview">
+        <b-row v-if="fIsVisible" key="k_preview" id="previewSection" class="preview justify-content-sm-center">
+            <b-col class="col-12">
+                <h1>My preview stuff</h1>
+            </b-col>
+        </b-row>
+</transition>
+
 <!--
     <b-row class="">
         <b-col class="">
@@ -29,15 +38,31 @@ export default {
         msg: String
     },
     computed: {
+        isPreviewVisible() {
+            return this.$store.getters.isPreviewVisible;
+        },
+        fIsVisible() {
+            return this.isVisible;
+        }
     },
     data () {
         return {
+            isVisible: true,
             items: [1,2,3,4,5,6,7,8,9],
             nextNum: 10,
             bar: 0
         }
     },
     methods: {
+        togglePreview(e) {
+            e.preventDefault();
+            if (this.isVisible) {
+                isVisible = false;
+            } else {
+                this.$store.dispatch('showPreview');
+                isVisible = true;
+            }
+        },
         randomIndex: function () {
             return Math.floor(Math.random() * this.items.length)
         },
@@ -71,5 +96,20 @@ span {
 .list-leave-to {
   opacity: 0;
   //transform: translateY(30px);
+}
+
+
+// Preview
+.t_preview-enter-active {
+  transition: all 2.7s;
+}
+.t_preview-leave-active {
+  transition: all 2.7s;
+}
+.t_preview-enter, 
+.t_preview-leave-to {
+  opacity: 0;
+  //transform: scale(0.5);
+  transform: translateY(300px);
 }
 </style>
