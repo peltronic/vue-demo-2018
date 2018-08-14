@@ -10,7 +10,9 @@
         -->
     </b-col>
     <b-col id="crate-description" class="col-6">
-        <button v-on:click="closePreview" class="action action--close"><close-icon /><span class="text-hidden">Close</span></button>
+        <!--
+        <button v-on:click="closePreview" class="action tag-clickme_to_close_preview"><close-icon /><span class="text-hidden">Close</span></button>
+        -->
 
         <div class="description description--preview">
             <b-row>
@@ -108,7 +110,6 @@
 
 <script>
 
-import CloseIcon from "vue-material-design-icons/close.vue"
 import MicrophoneIcon from "vue-material-design-icons/microphone.vue"
 import PencilIcon from "vue-material-design-icons/pencil.vue"
 import PlayCircleOutlineIcon from "vue-material-design-icons/play-circle-outline.vue"
@@ -122,12 +123,8 @@ export default {
         imageUrl: String
     },
     methods: {
-        closePreview(e) {
-            this.$store.dispatch('hidePreview');
-        },
     },
     components: {
-        CloseIcon,
         MicrophoneIcon,
         PencilIcon,
         PlayCircleOutlineIcon
@@ -163,41 +160,6 @@ ul.radio-links > li {
 button {
     text-align: center;
     text-transform: uppercase;
-}
-.action {
-    font-size: 1.5em;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-    color: #fff;
-    border: none;
-    background: none;
-}
-button.action.action--close .material-design-icon {
-    font-size: 60px;
-    cursor: pointer;
-}
-.action--close {
-    position: fixed;
-    z-index: 150;
-    top: 0;
-    right: 0;
-    padding: 1em;
-    /*
-    opacity: 0;
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
-    transition: opacity 0.3s, transform 0.3s;
-    -webkit-transform: scale3d(0.6, 0.6, 1);
-    transform: scale3d(0.6, 0.6, 1);
-    */
-}
-.text-hidden {
-    position: absolute;
-    display: block;
-    overflow: hidden;
-    width: 0;
-    height: 0;
-    color: transparent;
 }
 .cat-icon {
     background: #333;

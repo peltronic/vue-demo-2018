@@ -68,6 +68,14 @@ export default {
 .tag-verror {
     color: red; 
 }
+.text-hidden {
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    color: transparent;
+}
 
 nav#nav {
   padding: 30px;

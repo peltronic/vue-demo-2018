@@ -20,6 +20,7 @@
 <transition v-on:leave="leave" v-on:before-leave="beforeLeave" name="t_preview">
         <b-row v-if="isPreviewVisible" key="k_preview" id="previewSection" class="preview justify-content-sm-center">
             <b-col class="col-12">
+                <button v-on:click="closePreview" class="tag-clickme_to_close_preview"><close-icon /><span class="text-hidden">Close</span></button>
                 <!--
                 <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" @close-preview="closePreview" />
                 -->
@@ -69,9 +70,11 @@ import PlusIcon from "vue-material-design-icons/plus.vue"
 export default {
     name: 'TourList',
     computed: {
+        /*
         isPreviewVisible() {
             return this.$store.getters.isPreviewVisible;
         },
+        */
         tours() {
             return this.$store.getters.tours;
         }
@@ -83,6 +86,7 @@ export default {
     },
     data() {
         return {
+            isPreviewVisible : false,
             preview: {
                 title: "tbd",
                 artist: "tbd",
@@ -108,8 +112,14 @@ export default {
             this.preview.imageUrl = selected.thumbnail;
             this.preview.mp3Url = selected.mp3;
             this.preview.artist = selected.artist;
-            this.$store.dispatch('showPreview');
-        }
+            //this.$store.dispatch('showPreview');
+            this.isPreviewVisible = true;
+        },
+        closePreview(e) {
+            e.preventDefault();
+            this.isPreviewVisible = false;
+            //this.$store.dispatch('hidePreview');
+        },
     },
     created() {
         this.$store.dispatch('getTours',this.toursToDisplay);
@@ -182,6 +192,26 @@ img {
 }
 button.tag-clickme_to_view_work .material-design-icon.plus-icon {
     display: none;
+}
+
+#previewSection > div.col {
+    position: relative;
+}
+button.tag-clickme_to_close_preview {
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    right: 1em;
+    border: none;
+    background: none;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+}
+button.tag-clickme_to_close_preview .material-design-icon {
+    font-size: 60px;
+    cursor: pointer;
 }
 
 // === Transitions ===
