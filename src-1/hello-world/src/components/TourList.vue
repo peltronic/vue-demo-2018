@@ -142,9 +142,11 @@ html, body {
     right: 0;
 }
 #artistSection {
+    /*
     position: absolute;
     top: 0;
     left: 0;
+    */
 }
 ul {
     list-style: none;
@@ -154,10 +156,10 @@ img {
 }
 
 .container-fluid {
-    z-index: 100 !important;
+    //z-index: 100 !important;
 }
 #artistSection {
-    z-index: 3 !important;
+    //z-index: 3 !important;
 }
 
 .tour-list--item .crate {
@@ -167,7 +169,7 @@ img {
 
 .tour-list--item .img-wrap,
 .tour-list--item .item-title {
-    z-index: 2;
+    //z-index: 2;
     position: relative;
 }
 

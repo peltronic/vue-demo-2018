@@ -36,7 +36,7 @@ app.get('/tours', (req, res) => {
   fs.readFile(TOUR_DATA_FILE, (err, data) => {
     res.setHeader('Cache-Control', 'no-cache');
     //res.json( JSON.parse(data) );
-    res.json( JSON.parse(data).slice(0,3) );
+    res.json( JSON.parse(data).slice(0,6) );
   });
 });
 
