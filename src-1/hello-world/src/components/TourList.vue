@@ -224,13 +224,6 @@ isPreviewVisible() {
     }
 },
 
-
-*/
-isPreviewVisible() {
-        return this.$store.getters.isPreviewVisible;
-},
-
-
 */
 .t_preview-enter-active {
   transition: all 2.7s;
