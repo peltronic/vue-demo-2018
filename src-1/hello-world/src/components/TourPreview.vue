@@ -10,11 +10,8 @@
         -->
     </b-col>
     <b-col id="crate-description" class="col-6">
-        <!--
-        <button v-on:click="closePreview" class="action tag-clickme_to_close_preview"><close-icon /><span class="text-hidden">Close</span></button>
-        -->
 
-        <div class="description description--preview">
+        <div class="description">
             <b-row>
                 <b-col>
                     <h6 class="item-sub">{{title}}</h6>

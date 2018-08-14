@@ -1,33 +1,36 @@
 <template>
-    <b-container fluid class="bv-example-row">
+    <b-container fluid id="wrap-home_tourlist" class="debug-border template-wrap">
 
-        <transition-group id="artistSection" class="grid row" name="t_artist_grid" tag="div">
-            <b-col md="4" v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="OFF-col-xs-12 OFF-col-md-4 grid__item tour-list--item">
-                <div class="crate">
-                    <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
-                    <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
-                        <img class="" v-bind:src="tour.thumbnail">
-                    </a>
-                    <div class="item-title">
-                        <h6 class="item-sub">{{tour.title}}</h6>
-                        <h3 class="item-heading">{{tour.artist}}</h3>
-                        <b-button variant="danger" class="tag-clickme_to_view_work"><plus-icon /><span>View Work</span></b-button>
-                    </div>
-                </div>
-            </b-col>
-        </transition-group>
+        <b-row class="OFF-h-100">
+            <b-col class="OFF-h-100">
 
-<transition v-on:leave="leave" v-on:before-leave="beforeLeave" name="t_preview">
-        <b-row v-if="isPreviewVisible" key="k_preview" id="previewSection" class="preview justify-content-sm-center">
-            <b-col class="col-12">
-                <button v-on:click="closePreview" class="tag-clickme_to_close_preview"><close-icon /><span class="text-hidden">Close</span></button>
-                <!--
-                <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" @close-preview="closePreview" />
-                -->
-                <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" />
+                <transition-group id="artistSection" class="grid row" name="t_artist_grid" tag="div">
+                    <b-col md="4" v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="OFF-col-xs-12 OFF-col-md-4 grid__item tour-list--item">
+                        <div class="crate">
+                            <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
+                            <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
+                                <img class="" v-bind:src="tour.thumbnail">
+                            </a>
+                            <div class="item-title">
+                                <h6 class="item-sub">{{tour.title}}</h6>
+                                <h3 class="item-heading">{{tour.artist}}</h3>
+                                <b-button variant="danger" class="tag-clickme_to_view_work"><plus-icon /><span>View Work</span></b-button>
+                            </div>
+                        </div>
+                    </b-col>
+                </transition-group>
+        
+                <transition name="t_preview">
+                    <b-row v-if="isPreviewVisible" key="k_preview" id="previewSection" class="preview justify-content-sm-center">
+                        <b-col class="col-12">
+                            <button v-on:click="closePreview" class="tag-clickme_to_close_preview"><close-icon /><span class="text-hidden">Close</span></button>
+                            <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" />
+                        </b-col>
+                    </b-row>
+                </transition>
+
             </b-col>
         </b-row>
-</transition>
 
     </b-container>
 </template>
@@ -70,11 +73,6 @@ import PlusIcon from "vue-material-design-icons/plus.vue"
 export default {
     name: 'TourList',
     computed: {
-        /*
-        isPreviewVisible() {
-            return this.$store.getters.isPreviewVisible;
-        },
-        */
         tours() {
             return this.$store.getters.tours;
         }
@@ -87,6 +85,7 @@ export default {
     data() {
         return {
             isPreviewVisible : false,
+            //isGridVisible : true,
             preview: {
                 title: "tbd",
                 artist: "tbd",
@@ -98,12 +97,6 @@ export default {
         }
     },
     methods: {
-        beforeLeave(e) {
-            console.log('before leave');
-        },
-        leave(e, done) {
-            console.log('leave');
-        },
         renderPreview(e, guid) { // aka openPreview
             e.preventDefault();
             console.log('clicked: '+guid);
@@ -112,13 +105,11 @@ export default {
             this.preview.imageUrl = selected.thumbnail;
             this.preview.mp3Url = selected.mp3;
             this.preview.artist = selected.artist;
-            //this.$store.dispatch('showPreview');
             this.isPreviewVisible = true;
         },
         closePreview(e) {
             e.preventDefault();
             this.isPreviewVisible = false;
-            //this.$store.dispatch('hidePreview');
         },
     },
     created() {
@@ -136,7 +127,19 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#wrap-home_tourlist > div.row > div.col {
+    position: relative;
+    min-height: 100vh;
+}
 #previewSection {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#artistSection {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 ul {
     list-style: none;
