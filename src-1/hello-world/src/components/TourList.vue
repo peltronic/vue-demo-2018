@@ -1,28 +1,34 @@
 <template>
-    <b-container fluid class="bv-example-row">
+    <b-container fluid id="wrap-home_tourlist" class="debug-border template-wrap">
 
-        <b-row id="artistSection" class="grid">
-            <b-col md="4" v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="OFF-col-xs-12 OFF-col-md-4 grid__item tour-list--item">
-                <div class="crate">
-                    <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
-                    <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
-                        <img class="" v-bind:src="tour.thumbnail">
-                    </a>
-                    <div class="item-title">
-                        <h6 class="item-sub">{{tour.title}}</h6>
-                        <h3 class="item-heading">{{tour.artist}}</h3>
-                        <b-button variant="danger" class="tag-clickme_to_view_work"><plus-icon /><span>View Work</span></b-button>
-                    </div>
-                </div>
-            </b-col>
-        </b-row>
+        <b-row class="OFF-h-100">
+            <b-col class="OFF-h-100">
 
-        <b-row v-if="isPreviewVisible" id="previewSection" class="preview justify-content-sm-center">
-            <b-col class="col-12">
-                <!--
-                <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" @close-preview="closePreview" />
-                -->
-                <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" />
+                <transition-group id="artistSection" class="grid row" name="t_artist_grid" tag="div">
+                    <b-col md="4" v-for="tour in tours" v-if="!isPreviewVisible" :key="tour.id" :id="'panel-'+tour.id" :data-tour_guid=tour.guid class="OFF-col-xs-12 OFF-col-md-4 grid__item tour-list--item">
+                        <div class="crate">
+                            <div class="background-image" :style="`background-image: url(${tour.thumbnail})`"></div>
+                            <a v-on:click="renderPreview($event, tour.guid)" :href="tour.thumbnail" class="img-wrap">
+                                <img class="" v-bind:src="tour.thumbnail">
+                            </a>
+                            <div class="item-title">
+                                <h6 class="item-sub">{{tour.title}}</h6>
+                                <h3 class="item-heading">{{tour.artist}}</h3>
+                                <b-button variant="danger" class="tag-clickme_to_view_work"><plus-icon /><span>View Work</span></b-button>
+                            </div>
+                        </div>
+                    </b-col>
+                </transition-group>
+        
+                <transition name="t_preview">
+                    <b-row v-if="isPreviewVisible" key="k_preview" id="previewSection" class="preview justify-content-sm-center">
+                        <b-col class="col-12">
+                            <button v-on:click="closePreview" class="tag-clickme_to_close_preview"><close-icon /><span class="text-hidden">Close</span></button>
+                            <TourPreview :title="preview.title" :artist="preview.artist" :imageUrl="preview.imageUrl" :mp3Url="preview.mp3Url" />
+                        </b-col>
+                    </b-row>
+                </transition>
+
             </b-col>
         </b-row>
 
@@ -67,9 +73,6 @@ import PlusIcon from "vue-material-design-icons/plus.vue"
 export default {
     name: 'TourList',
     computed: {
-        isPreviewVisible() {
-            return this.$store.getters.isPreviewVisible;
-        },
         tours() {
             return this.$store.getters.tours;
         }
@@ -81,6 +84,8 @@ export default {
     },
     data() {
         return {
+            isPreviewVisible : false,
+            //isGridVisible : true,
             preview: {
                 title: "tbd",
                 artist: "tbd",
@@ -100,15 +105,15 @@ export default {
             this.preview.imageUrl = selected.thumbnail;
             this.preview.mp3Url = selected.mp3;
             this.preview.artist = selected.artist;
-            this.$store.dispatch('showPreview');
-        }
+            this.isPreviewVisible = true;
+        },
+        closePreview(e) {
+            e.preventDefault();
+            this.isPreviewVisible = false;
+        },
     },
     created() {
         this.$store.dispatch('getTours',this.toursToDisplay);
-    },
-    mounted() {
-        //var tmp = this.$el;
-        //this.t._test();
     },
     props: {
         msg: String
@@ -122,7 +127,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
+html, body {
+    height: 100% !important;
+}
+#wrap-home_tourlist > div.row > div.col {
+    position: relative;
+    min-height: 100vh;
+}
 #previewSection {
+    // see: https://stackoverflow.com/questions/28144233/bootstrap-container-with-positionabsolute-loses-layout-inside
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+#artistSection {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 ul {
     list-style: none;
@@ -179,4 +201,79 @@ img {
 button.tag-clickme_to_view_work .material-design-icon.plus-icon {
     display: none;
 }
+
+#previewSection > div.col {
+    position: relative;
+}
+button.tag-clickme_to_close_preview {
+    position: absolute;
+    z-index: 150;
+    top: 0;
+    right: 1em;
+    border: none;
+    background: none;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    font-size: 1.5em;
+}
+button.tag-clickme_to_close_preview .material-design-icon {
+    font-size: 60px;
+    cursor: pointer;
+}
+
+// === Transitions ===
+
+// Grid
+.t_artist_grid-enter-active {
+  transition: all 0.7s;
+}
+.t_artist_grid-leave-active {
+  transition: all 0.7s;
+}
+.t_artist_grid-enter, 
+.t_artist_grid-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+  //transform: translateY(30px);
+}
+
+// Preview
+//   %NOTE %FIXME 20180813 -- this transition is not working b/c, I believe, it is triggered in the Preview component
+//    ...not sure why the computed property doesn't catch it however...
+//    solution is to move it to absolute position so it overlaps??
+//    it's there, jsut hidden by the grid content becoming visible (??)
+// Ideally we are able to somehow hook to other elements (timing and synchronization), if not may just have to combine the 2 and make the preview
+//   position absolute
+// ==
+/*
+        isPreviewVisible() {
+            return this.$store.getters.isPreviewVisible;
+        },
+isPreviewVisible should not be a getter, polluted state in Vuex state
+    ~ probably should revert back to just using a custom event 
+    ~ also, can put X in parent instead of preview child, that solves alot of problems (no event needed?)
+isPreviewVisible() {
+    // something like this (psuedo-code)
+    if (transition from not visible to visible) {
+        hide grid first, then using promise or equiv show preview
+    } else if (transition from visible to not visible) {
+        hide preview first, then using promise or equiv show grid
+    }
+},
+
+*/
+.t_preview-enter-active {
+  transition: all 0.8s;
+}
+.t_preview-leave-active {
+  transition: all 0.8s;
+}
+.t_preview-enter, 
+.t_preview-leave-to {
+  opacity: 0;
+  transform: scale(0.5);
+  //transform: translateY(300px);
+}
+
 </style>

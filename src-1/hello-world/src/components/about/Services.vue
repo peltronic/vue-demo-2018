@@ -1,5 +1,5 @@
 <template>
-<b-container fluid id="wrap-about_digital" class="debug-border template-wrap">
+<b-container fluid id="wrap-about_services" class="debug-border template-wrap">
 
     <b-row class="h-100 justify-content-center tag-background_image">
         <b-col md="7" class="my-auto">
